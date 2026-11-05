@@ -1,7 +1,7 @@
 
 window.proegLayout = {
   init() {
-    const currentPath = window.location.pathname.split('/').pop() || 'home.html';
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
     const headerHTML = `
       <div class="fixed top-0 left-0 w-full z-50 bg-blue-800 text-white text-[0.65rem] font-bold uppercase tracking-[0.15em] py-2.5 text-center">
@@ -13,7 +13,7 @@ window.proegLayout = {
           <!-- Logo & Name -->
           <div class="flex items-center gap-2">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrYv7bQadLSGQkjXOU1Zk5vYmwK1VUJNSmIiHhdRuMA&s=10" class="w-8 h-8 rounded-full object-cover" alt="logo">
-            <a href="home.html" class="font-black text-2xl tracking-tighter text-white no-underline">
+            <a href="index.html" class="font-black text-2xl tracking-tighter text-white no-underline">
               PROEG<sup class="text-[#E63946] font-bold text-sm">2</sup>
             </a>
           </div>
@@ -22,9 +22,9 @@ window.proegLayout = {
           <nav class="hidden lg:flex items-center gap-7 text-[0.75rem] font-bold uppercase tracking-[0.1em] text-slate-300">
             <!-- Home Dropdown -->
             <div class="relative group cursor-pointer py-6">
-              <span class="flex items-center gap-1 hover:text-white transition-colors ${currentPath === 'home.html' || currentPath === 'index-saas.html' ? 'text-[#E63946]' : ''}">Home ▾</span>
+              <span class="flex items-center gap-1 hover:text-white transition-colors ${currentPath === 'index.html' || currentPath === 'index-saas.html' ? 'text-[#E63946]' : ''}">Home ▾</span>
               <div class="absolute top-full left-0 w-48 bg-[#0B132B] border border-slate-800 shadow-xl rounded-xl py-2 hidden group-hover:block z-50">
-                <a href="home.html" class="block px-4 py-2 text-xs hover:bg-slate-800 ${currentPath === 'home.html' ? 'text-[#E63946]' : 'text-slate-300'}">Customer Portal</a>
+                <a href="index.html" class="block px-4 py-2 text-xs hover:bg-slate-800 ${currentPath === 'index.html' ? 'text-[#E63946]' : 'text-slate-300'}">Customer Portal</a>
                 <a href="index-saas.html" class="block px-4 py-2 text-xs hover:bg-slate-800 ${currentPath === 'index-saas.html' ? 'text-[#E63946]' : 'text-slate-300'}">Business SaaS</a>
               </div>
             </div>
@@ -62,7 +62,7 @@ window.proegLayout = {
       <!-- Mobile Dropdown Navigation Menu Drawer (Containing Navigation Links + RTL & Theme Toggles) -->
       <div id="mobileMenu" class="fixed top-[109px] left-0 w-full z-30 bg-[#0B132B] text-white border-b border-slate-800 p-6 space-y-4 hidden shadow-2xl lg:hidden transition-all">
         <div class="flex flex-col space-y-3 text-xs font-bold uppercase tracking-widest">
-          <a href="home.html" class="py-2.5 px-3 rounded-xl hover:bg-slate-800 transition-colors ${currentPath === 'home.html' ? 'text-[#E63946] bg-slate-800/80' : 'text-slate-300'}">Customer Portal (Home)</a>
+          <a href="index.html" class="py-2.5 px-3 rounded-xl hover:bg-slate-800 transition-colors ${currentPath === 'index.html' ? 'text-[#E63946] bg-slate-800/80' : 'text-slate-300'}">Customer Portal (Home)</a>
           <a href="index-saas.html" class="py-2.5 px-3 rounded-xl hover:bg-slate-800 transition-colors ${currentPath === 'index-saas.html' ? 'text-[#E63946] bg-slate-800/80' : 'text-slate-300'}">Business SaaS Portal</a>
           <a href="products.html" class="py-2.5 px-3 rounded-xl hover:bg-slate-800 transition-colors ${currentPath === 'products.html' ? 'text-[#E63946] bg-slate-800/80' : 'text-slate-300'}">Shop All Products</a>
           <a href="about.html" class="py-2.5 px-3 rounded-xl hover:bg-slate-800 transition-colors ${currentPath === 'about.html' ? 'text-[#E63946] bg-slate-800/80' : 'text-slate-300'}">About Us</a>
