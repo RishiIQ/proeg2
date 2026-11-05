@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --proeg-navy: #0B132B;
+  --proeg-accent-red: #E63946;
+  --proeg-bg: #FFFFFF;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--proeg-bg);
+  color: var(--proeg-navy);
+  margin: 0;
+  padding: 0;
+}
+
+.dark body {
+  background-color: #080C14;
+  color: #F8F9FA;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+
+.proeg-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  transition: all 0.3s ease;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.dark .proeg-card {
+  background: #111827;
+  border-color: #1F2937;
+  color: #F8F9FA;
+}
+
+.proeg-card:hover {
+  border-color: #0B132B;
+  box-shadow: 0 12px 30px rgba(11, 19, 43, 0.08);
+  transform: translateY(-2px);
+}
+
+.proeg-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #0B132B;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.dark .proeg-btn {
+  background: #FFFFFF;
+  color: #0B132B;
+}
+
+.proeg-btn:hover {
+  background: #E63946;
+  color: #FFFFFF;
+}
+
+input, select, textarea {
+  border-radius: 0.75rem !important;
+}

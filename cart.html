@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart & Checkout | PROEG²</title>
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrYv7bQadLSGQkjXOU1Zk5vYmwK1VUJNSmIiHhdRuMA&s=10" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pt-[115px] bg-slate-50 dark:bg-[#080C14] text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  <script src="js/db.js"></script>
+  <script src="js/layout.js"></script>
+
+  <!-- PROFESSIONAL PAYMENT MODAL POP-UP WITH MULTI-METHOD (CARD, UPI, COD) & VALIDATION -->
+  <div id="paymentModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-md bg-slate-950/70 hidden overflow-y-auto">
+    <div class="bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 w-full max-w-xl rounded-3xl shadow-2xl overflow-hidden relative my-8 animate-in fade-in zoom-in-95 duration-300">
+      
+      <!-- Modal Header -->
+      <div class="bg-[#0B132B] text-white p-6 sm:p-8 flex items-center justify-between">
+        <div class="space-y-1">
+          <span class="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-[#E63946]">Secure Checkout Gateway</span>
+          <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight">Select Payment Method</h3>
+        </div>
+        <button onclick="closePaymentModal()" class="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center font-black text-sm hover:bg-[#E63946] transition-colors cursor-pointer" aria-label="Close modal">✕</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 sm:p-8 space-y-6">
+        <!-- Order Total Banner -->
+        <div class="bg-slate-100 dark:bg-slate-800/60 p-4 rounded-2xl flex items-center justify-between">
+          <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold">Total Amount Due</span>
+          <span id="modalOrderTotal" class="text-xl font-black text-[#E63946]">€0.00</span>
+        </div>
+
+        <!-- Payment Method Selector Tabs -->
+        <div class="grid grid-cols-3 gap-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-2xl">
+          <button type="button" onclick="switchPaymentMethod('card')" id="tabCard" class="py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#0B132B] text-white transition-all shadow cursor-pointer">Card</button>
+          <button type="button" onclick="switchPaymentMethod('upi')" id="tabUpi" class="py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 transition-all cursor-pointer">UPI ID</button>
+          <button type="button" onclick="switchPaymentMethod('cod')" id="tabCod" class="py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 transition-all cursor-pointer">COD</button>
+        </div>
+
+        <!-- 1. CARD PAYMENT FORM -->
+        <form id="formCard" onsubmit="handleCardPayment(event)" class="space-y-4">
+          <div class="space-y-1">
+            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Cardholder Name</label>
+            <input type="text" id="cardName" placeholder="Janis Berzins" autocomplete="cc-name" required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl focus:border-[#E63946]">
+          </div>
+
+          <div class="space-y-1">
+            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Card Number</label>
+            <div class="relative">
+              <input type="text" id="cardNumber" inputmode="numeric" placeholder="4532 0000 0000 8920" autocomplete="cc-number" maxlength="19" required oninput="formatCardNumber(this)" class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl pr-16 font-mono focus:border-[#E63946]">
+              <span class="absolute right-3 top-3.5 text-[0.6rem] font-bold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded">VISA / MC</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Expiration Date</label>
+              <input type="text" id="cardExpiry" inputmode="numeric" placeholder="MM / YY" autocomplete="cc-exp" maxlength="7" required oninput="formatExpiry(this)" class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl font-mono focus:border-[#E63946]">
+            </div>
+            <div class="space-y-1">
+              <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">CVV Security Code</label>
+              <input type="password" id="cardCvv" inputmode="numeric" placeholder="123" autocomplete="cc-csc" maxlength="4" pattern="[0-9]{3,4}" required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl font-mono focus:border-[#E63946]">
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="proeg-btn w-full py-4 text-center cursor-pointer shadow-lg">Authorize Card Payment</button>
+          </div>
+        </form>
+
+        <!-- 2. UPI PAYMENT FORM -->
+        <form id="formUpi" onsubmit="handleUpiPayment(event)" class="space-y-4 hidden">
+          <div class="space-y-1">
+            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Enter UPI ID / VPA</label>
+            <input type="text" id="upiId" placeholder="username@oksbi or mobile@paytm" required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl focus:border-[#E63946]">
+            <p class="text-[0.6rem] text-slate-400 pt-1">A payment authorization prompt will be dispatched to your UPI application.</p>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="proeg-btn w-full py-4 text-center cursor-pointer shadow-lg">Verify & Pay via UPI</button>
+          </div>
+        </form>
+
+        <!-- 3. CASH ON DELIVERY (COD) FORM -->
+<form id="formCod" onsubmit="handleCodPayment(event)" class="space-y-4 hidden">
+  <div class="space-y-1">
+    <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Delivery Address</label>
+    <input type="text" id="codAddress" placeholder="Enter delivery address here" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs uppercase text-slate-900 dark:text-white outline-none rounded-xl focus:border-[#E63946] dark:focus:border-[#E63946] transition-colors">
+  </div>
+
+  <div class="space-y-1">
+    <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Delivery Phone Number (10 Digits)</label>
+    <input type="tel" id="codPhone" inputmode="numeric" placeholder="9876543210" maxlength="10" pattern="[0-9]{10}" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs uppercase text-slate-900 dark:text-white outline-none rounded-xl font-mono focus:border-[#E63946] dark:focus:border-[#E63946] transition-colors" oninput="this.value = this.value.replace(/\D/g, '').substring(0, 10)">
+    <p class="text-[0.6rem] text-slate-400 pt-1">Pay with cash upon delivery. Our courier will call your 10-digit number prior to arrival.</p>
+  </div>
+
+  <div class="pt-2">
+    <button type="submit" class="proeg-btn w-full py-4 text-center cursor-pointer shadow-lg">Confirm Cash on Delivery Order</button>
+  </div>
+</form>
+
+        <!-- Trust Badges -->
+        <div class="text-center pt-2 text-[0.6rem] uppercase tracking-widest text-slate-400">
+          🔒 Encrypted 256-Bit Connection &bull; SIA APF Trading Checkout Gateway
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Hero Header with HQ Background Image -->
+  <section class="py-20 sm:py-28 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-6 shadow-2xl relative overflow-hidden group" style="background-image:url('https://img.magnific.com/free-photo/protein-gym_23-2151980058.jpg?semt=ais_hybrid&w=1200&q=80');">
+    <div class="absolute inset-0 bg-gradient-to-t from-[#080C14] via-[#0B132B]/75 to-transparent pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto space-y-4 relative z-10 backdrop-blur-md bg-[#0B132B]/85 border border-white/10 rounded-2xl p-8 shadow-2xl">
+      <span class="px-3 py-1 bg-[#E63946] text-white text-[0.6rem] font-bold uppercase tracking-[0.2em] rounded-md">Secure Checkout</span>
+      <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight">Your proeg² Cart</h1>
+      <p class="text-xs sm:text-sm uppercase tracking-widest text-slate-300">Review your science-backed nutritional course items below.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Main Cart Container & Items List -->
+  <section class="max-w-7xl mx-auto py-12 px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Cart Items List (2 Columns) -->
+      <div class="lg:col-span-2 space-y-6">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+          <h2 class="text-xl font-black uppercase tracking-tight">Cart Items</h2>
+          <button onclick="proegDB.clearCart(); renderCart();" class="text-xs font-bold uppercase text-[#E63946] hover:underline cursor-pointer">Clear Cart</button>
+        </div>
+        <div id="cartItemsContainer" class="space-y-4">
+          <!-- Dynamically Injected Cart Items -->
+        </div>
+      </div>
+
+      <!-- SECTION 3: Order Summary & Subtotal Breakdown -->
+      <div class="space-y-6">
+        <div class="proeg-card p-6 sm:p-8 rounded-2xl space-y-6 shadow-xl border border-slate-200 dark:border-slate-800">
+          <h3 class="text-lg font-black uppercase tracking-tight pb-4 border-b border-slate-200 dark:border-slate-800">Order Summary</h3>
+          <div class="space-y-3 text-xs uppercase tracking-wider">
+            <div class="flex justify-between text-slate-600 dark:text-slate-400">
+              <span>Subtotal</span>
+              <span id="cartSubtotal" class="font-bold text-slate-900 dark:text-white">&euro;0.00</span>
+            </div>
+            <div class="flex justify-between text-slate-600 dark:text-slate-400">
+              <span>Estimated Shipping</span>
+              <span class="font-bold text-emerald-600">&euro;0.00 (Free Baltic Shipping)</span>
+            </div>
+            <div class="flex justify-between text-slate-600 dark:text-slate-400">
+              <span>Bundle Discount (20%)</span>
+              <span id="cartDiscount" class="font-bold text-[#E63946]">&euro;0.00</span>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+            <span class="font-black uppercase text-sm">Total</span>
+            <span id="cartTotal" class="font-black text-2xl text-[#E63946]">&euro;0.00</span>
+          </div>
+
+          <!-- SECTION 4: Promo Code Input Box -->
+          <div class="space-y-2 pt-2">
+            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Discount Voucher</label>
+            <div class="flex gap-2">
+              <input type="text" id="promoCodeInput" placeholder="e.g. proeg20" class="flex-1 p-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
+              <button onclick="applyPromo()" class="px-4 py-3 bg-[#0B132B] text-white text-xs font-bold uppercase rounded-xl hover:bg-[#E63946] transition-colors cursor-pointer">Apply</button>
+            </div>
+          </div>
+
+          <!-- SECTION 5: Checkout Action Buttons -->
+          <button onclick="checkout()" class="f-btn proeg-btn w-full py-4 text-center block cursor-pointer">Proceed to Secure Checkout</button>
+        </div>
+
+      
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Recommended Upsell Add-ons -->
+  <section class="py-16 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-slate-800">
+    <div class="text-center space-y-2 mb-10">
+      <h2 class="text-2xl font-black uppercase">Frequently Added With Your Order</h2>
+      <p class="text-xs uppercase tracking-widest text-slate-500">Maximize your recovery with complementary formulas.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6" id="upsellGrid"></div>
+  </section>
+
+  <!-- SECTION 8: Autoship & Subscription Reminder Banner -->
+  <section class="bg-[#0B132B] text-white py-16 px-6 text-center my-8">
+    <div class="max-w-3xl mx-auto space-y-4">
+      <h3 class="text-3xl font-black uppercase">Want 15% Off Every Future Order?</h3>
+      <p class="text-xs uppercase tracking-widest text-slate-300">Switch any item to auto-delivery and enjoy permanent subscriber pricing with zero commitment.</p>
+      <a href="products.html" class="proeg-btn inline-block bg-white text-[#0B132B] mt-2">Explore Subscriptions</a>
+    </div>
+  </section>
+
+  <!-- SECTION 9: Security & Guarantee Badges -->
+  <section class="py-12 px-6 max-w-5xl mx-auto text-center grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="proeg-card p-6 rounded-2xl"><h4 class="font-bold uppercase text-xs text-[#E63946] mb-1">SSL Encrypted</h4><p class="text-[0.65rem] text-slate-500 uppercase">Bank-grade 256-bit secure checkout pipeline.</p></div>
+    <div class="proeg-card p-6 rounded-2xl"><h4 class="font-bold uppercase text-xs text-[#E63946] mb-1">30-Day Guarantee</h4><p class="text-[0.65rem] text-slate-500 uppercase">Hassle-free returns on all unopened product courses.</p></div>
+    <div class="proeg-card p-6 rounded-2xl"><h4 class="font-bold uppercase text-xs text-[#E63946] mb-1">Fast EU Shipping</h4><p class="text-[0.65rem] text-slate-500 uppercase">Dispatched within 24 hours from Mārupe, Latvia.</p></div>
+  </section>
+
+  <!-- SECTION 10: FAQ Quick Dropdowns -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <h3 class="text-2xl font-black uppercase text-center mb-8">Checkout & Delivery FAQs</h3>
+    <div class="space-y-4">
+      <div class="proeg-card p-6 cursor-pointer rounded-2xl" onclick="this.querySelector('.ans').classList.toggle('hidden')">
+        <h4 class="font-bold text-xs uppercase flex justify-between">What payment methods are accepted? <span>+</span></h4>
+        <p class="ans hidden text-xs text-slate-500 mt-2 leading-relaxed">We accept all major credit cards, UPI, Cash on Delivery (COD), Apple Pay, Google Pay, and PayPal.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let discountRate = 0;
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      const subtotalEl = document.getElementById('cartSubtotal');
+      const discountEl = document.getElementById('cartDiscount');
+      const totalEl = document.getElementById('cartTotal');
+
+      if (!container || !window.proegDB) return;
+      const rawCart = proegDB.getCart();
+
+      const cart = rawCart.map(cartItem => {
+        const product = proegDB.products.find(p => p.id === cartItem.id);
+        return product ? { ...product, qty: cartItem.qty } : null;
+      }).filter(item => item !== null);
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="proeg-card p-12 text-center rounded-2xl space-y-4">
+            <p class="text-xs uppercase font-bold text-slate-500">Your cart is currently empty.</p>
+            <a href="products.html" class="proeg-btn inline-block">Start Shopping</a>
+          </div>`;
+        subtotalEl.textContent = '€0.00';
+        discountEl.textContent = '€0.00';
+        totalEl.textContent = '€0.00';
+        return;
+      }
+
+      container.innerHTML = cart.map(item => `
+        <div class="proeg-card p-4 sm:p-6 rounded-2xl flex items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-xl bg-slate-100 dark:bg-slate-900">
+            <div>
+              <h4 class="font-bold text-xs sm:text-sm uppercase">${item.name}</h4>
+              <p class="text-xs text-[#E63946] font-black pt-1">&euro;${item.price.toFixed(2)}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex items-center border border-slate-300 dark:border-slate-700 rounded-xl overflow-hidden">
+              <button onclick="updateQty('${item.id}', ${item.qty - 1})" class="px-3 py-1.5 text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-800 cursor-pointer">-</button>
+              <span class="px-3 py-1.5 text-xs font-bold">${item.qty}</span>
+              <button onclick="updateQty('${item.id}', ${item.qty + 1})" class="px-3 py-1.5 text-xs font-bold hover:bg-slate-200 dark:hover:bg-slate-800 cursor-pointer">+</button>
+            </div>
+            <button onclick="removeItem('${item.id}')" class="text-slate-400 hover:text-[#E63946] p-2 cursor-pointer" title="Remove">✕</button>
+          </div>
+        </div>
+      `).join('');
+
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const discount = subtotal * discountRate;
+      const total = subtotal - discount;
+
+      subtotalEl.textContent = `€${subtotal.toFixed(2)}`;
+      discountEl.textContent = `€${discount.toFixed(2)}`;
+      totalEl.textContent = `€${total.toFixed(2)}`;
+
+      renderUpsells();
+    }
+
+    function updateQty(id, newQty) {
+      if (!window.proegDB) return;
+      let cart = proegDB.getCart();
+      const idx = cart.findIndex(i => i.id === id);
+      if (idx > -1) {
+        if (newQty <= 0) {
+          cart.splice(idx, 1);
+        } else {
+          cart[idx].qty = newQty;
+        }
+        proegDB.saveCart(cart);
+        renderCart();
+      }
+    }
+
+    function removeItem(id) {
+      updateQty(id, 0);
+    }
+
+    function applyPromo() {
+      const code = document.getElementById('promoCodeInput').value.trim().toUpperCase();
+      if (code === 'proeg20' || code === 'SAVE20') {
+        discountRate = 0.20;
+        alert('Promo code applied: 20% discount activated!');
+      } else {
+        discountRate = 0;
+        alert('Invalid promo code. Try "proeg20".');
+      }
+      renderCart();
+    }
+
+    // Payment Method Tab Switcher
+    function switchPaymentMethod(method) {
+      const tabCard = document.getElementById('tabCard');
+      const tabUpi = document.getElementById('tabUpi');
+      const tabCod = document.getElementById('tabCod');
+
+      const formCard = document.getElementById('formCard');
+      const formUpi = document.getElementById('formUpi');
+      const formCod = document.getElementById('formCod');
+
+      // Reset all tabs
+      [tabCard, tabUpi, tabCod].forEach(t => {
+        t.className = "py-3 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 transition-all cursor-pointer";
+      });
+      [formCard, formUpi, formCod].forEach(f => f.classList.add('hidden'));
+
+      if (method === 'card') {
+        tabCard.className = "py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#0B132B] text-white transition-all shadow cursor-pointer";
+        formCard.classList.remove('hidden');
+      } else if (method === 'upi') {
+        tabUpi.className = "py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#0B132B] text-white transition-all shadow cursor-pointer";
+        formUpi.classList.remove('hidden');
+      } else if (method === 'cod') {
+        tabCod.className = "py-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#0B132B] text-white transition-all shadow cursor-pointer";
+        formCod.classList.remove('hidden');
+      }
+    }
+
+    // Input Formatters for Credit Card
+    function formatCardNumber(input) {
+      let value = input.value.replace(/\D/g, '').substring(0, 16);
+      input.value = value.match(/.{1,4}/g)?.join(' ') || '';
+    }
+
+    function formatExpiry(input) {
+      let value = input.value.replace(/\D/g, '').substring(0, 4);
+      if (value.length >= 3) {
+        input.value = value.substring(0, 2) + ' / ' + value.substring(2);
+      } else {
+        input.value = value;
+      }
+    }
+
+    function checkout() {
+      const cart = window.proegDB ? proegDB.getCart() : [];
+      if (cart.length === 0) {
+        alert('Your cart is currently empty.');
+        return;
+      }
+
+      const subtotal = cart.reduce((sum, item) => {
+        const product = proegDB.products.find(p => p.id === item.id);
+        return sum + (product ? product.price * item.qty : 0);
+      }, 0);
+
+      const total = subtotal * (1 - (typeof discountRate !== 'undefined' ? discountRate : 0));
+      
+      const modalTotalEl = document.getElementById('modalOrderTotal');
+      if (modalTotalEl) {
+        modalTotalEl.textContent = `€${total.toFixed(2)}`;
+      }
+
+      const modal = document.getElementById('paymentModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closePaymentModal() {
+      const modal = document.getElementById('paymentModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Validation: Card Payment
+    function handleCardPayment(event) {
+      event.preventDefault();
+      const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+      const cardExpiry = document.getElementById('cardExpiry').value;
+      const cardCvv = document.getElementById('cardCvv').value;
+
+      if (cardNumber.length < 15 || !/^\d+$/.test(cardNumber)) {
+        alert('Please enter a valid 15 or 16-digit credit card number.');
+        return;
+      }
+      if (!/^(0[1-9]|1[0-2])\s?\/\s?([0-9]{2})$/.test(cardExpiry)) {
+        alert('Please enter a valid expiration date in MM/YY format.');
+        return;
+      }
+      if (cardCvv.length < 3 || !/^\d+$/.test(cardCvv)) {
+        alert('Please enter a valid 3 or 4-digit CVV security code.');
+        return;
+      }
+
+      alert('Card payment authorized successfully! Order dispatched from Mārupe, Latvia.');
+      finalizeOrder();
+    }
+
+    // Validation: UPI Payment
+    function handleUpiPayment(event) {
+      event.preventDefault();
+      const upiId = document.getElementById('upiId').value.trim();
+      const upiRegex = /^[\w.-]+@[\w.-]+$/;
+
+      if (!upiRegex.test(upiId)) {
+        alert('Please enter a valid UPI ID (e.g., username@oksbi or mobile@paytm).');
+        return;
+      }
+
+      alert(`UPI collect request sent to ${upiId}. Payment verified! Order confirmed.`);
+      finalizeOrder();
+    }
+
+   function handleCodPayment(event) {
+  event.preventDefault();
+  const codAddress = document.getElementById('codAddress').value.trim();
+  const codPhone = document.getElementById('codPhone').value.trim();
+
+  if (codAddress.length < 5) {
+    alert('Please enter a valid, complete delivery address.');
+    return;
+  }
+
+  if (!/^\d{10}$/.test(codPhone)) {
+    alert('Please enter a valid 10-digit phone number.');
+    return;
+  }
+
+  alert('Cash on Delivery order placed successfully! Our courier will contact you prior to delivery.');
+  finalizeOrder();
+}
+
+    function finalizeOrder() {
+      if (window.proegDB) {
+        proegDB.clearCart();
+      }
+      closePaymentModal();
+      if (typeof renderCart === 'function') {
+        renderCart();
+      }
+    }
+
+   
+
+    function renderUpsells() {
+      const grid = document.getElementById('upsellGrid');
+      if (!grid || !window.proegDB) return;
+      grid.innerHTML = proegDB.products.slice(0, 4).map(p => `
+        <div class="proeg-card p-4 flex flex-col justify-between space-y-3 rounded-2xl">
+          <img src="${p.image}" alt="${p.name}" class="w-full h-36 object-cover rounded-xl bg-slate-100 dark:bg-slate-900">
+          <h4 class="font-bold text-xs uppercase">${p.name}</h4>
+          <div class="flex items-center justify-between">
+            <span class="font-black text-sm">&euro;${p.price.toFixed(2)}</span>
+            <button onclick="proegDB.addToCart('${p.id}');  renderCart();" class="px-3 py-1.5 bg-[#0B132B] text-white text-[0.65rem] font-bold uppercase rounded-xl hover:bg-[#E63946] transition-colors cursor-pointer">Add</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCart();
+      window.addEventListener('cartUpdated', renderCart);
+    });
+  </script>
+</body>
+</html>

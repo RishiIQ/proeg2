@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | PROEG²</title>
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrYv7bQadLSGQkjXOU1Zk5vYmwK1VUJNSmIiHhdRuMA&s=10" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pt-[115px]">
+  <script src="js/db.js"></script>
+  <script src="js/layout.js"></script>
+
+  <!-- Section 1: Hero Banner ("Improve your health, improve your life") -->
+  <section class="py-40 sm:py-40 px-6 text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-4 shadow-xl relative overflow-hidden" style="background-image: linear-gradient(rgba(11,19,43,0.3), rgba(11,19,43,0.3)), url('https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');">
+    <div class="max-w-4xl mx-auto space-y-8 text-left">
+      <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white drop-shadow-md">Improve your health,<br>improve your life</h1>
+      <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-100 max-w-lg leading-relaxed">
+        Empowering your lifestyle with exceptional science-backed nutrition from the pure, natural power of eggs.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: "Who are we?" Block & Agrova Logo Card -->
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="bg-[#F3B718] p-12 rounded-3xl flex items-center justify-center aspect-square shadow-md">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhgHrJAhocIiGHB_Si2MSdqHKbkbe-d8N8qa_JxXQOLQ&s" alt="who_are_we">
+      </div>
+      <div class="space-y-4 text-left">
+        <h2 class="text-3xl font-black uppercase text-[#0B132B] dark:text-white">Who are we?</h2>
+        <p class="text-sm sm:text-xl uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+          proeg² is a brand dedicated to bringing the superpower of eggs to your daily routine. We specialize in high-quality egg white protein powder, bio-active egg membrane collagen, and functional protein bars. Our mission is to provide clean-label, dairy-free alternatives that support athletic performance, joint mobility, and radiant beauty without unnecessary additives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: "Why we do what we do?" & Pouring Image -->
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-4 text-left order-2 md:order-1">
+        <h2 class="text-3xl font-black uppercase text-[#0B132B] dark:text-white">Why we do what we do?</h2>
+        <p class="text-xs sm:text-xl uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+          We believe that achieving peak physical vitality shouldn't require compromising digestive comfort. Traditional whey and synthetic supplements often cause bloating and fatigue. By focusing on pure cage-free egg albumin and patented bio-collagen, we deliver 99% bioavailability that works in complete harmony with your body.
+        </p>
+      </div>
+      <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-lg order-1 md:order-2">
+        <img src="https://cosmix.in/cdn/shop/files/1KGCUCatalogueCover.jpg?v=1735187739" alt="Pouring Protein" class="w-full h-full object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: "Our Vision" & Relaxing Reading Image -->
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeBN4BdNP7p4dYWYPqaXt-Iw6R7dIHi_GHtb4e9tsERQtrfMoThfOARpC_&s=10" alt="Relaxing Lifestyle" class="w-full h-full object-cover">
+      </div>
+      <div class="space-y-4 text-left">
+        <h2 class="text-3xl font-black uppercase text-[#0B132B] dark:text-white">Our Vision</h2>
+        <p class="text-xs sm:text-xl uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+          Our vision is to revolutionize the global sports nutrition market by establishing egg-based protein and membrane collagens as the gold standard for daily wellness. We strive to empower households across Europe and beyond with sustainable, ethically sourced provisions that elevate everyday health.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: "Production Process" & Egg Pattern Grid -->
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-4 text-left order-2 md:order-1">
+        <h2 class="text-3xl font-black uppercase text-[#0B132B] dark:text-white">Production Process</h2>
+        <p class="text-xs sm:text-xl uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+          From cage-free European farming cooperatives to our advanced processing facilities in Mārupe, Latvia, every step of our production adheres to strict ISO 22000 quality standards. We use gentle filtration techniques to isolate pure albumin protein while retaining delicate bio-active peptides.
+        </p>
+      </div>
+      <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-lg bg-pink-50 flex items-center justify-center p-6 order-1 md:order-2">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdPaXOQSrgtkwftWj5x4lKwKAigHtGsJKazDcutbpf-V_NB-Ke9am3cig&s=10" alt="Egg Pattern" class="w-full h-full object-cover rounded-2xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: "Research backed approach" & Laboratory Beakers -->
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
+        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" alt="Laboratory Science" class="w-full h-full object-cover">
+      </div>
+      <div class="space-y-4 text-left">
+        <h2 class="text-3xl font-black uppercase text-[#0B132B] dark:text-white">Research backed approach</h2>
+        <p class="text-xs sm:text-xl uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+          We collaborate with independent clinical research institutions and incorporate patented ingredients like Ovomet® and Ovoderm®. Our formulations are rigorously tested to ensure maximum joint mobility, tendon recovery, and skin elasticity benefits.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: "Experience Life in Your Prime" Banner -->
+  <section class="py-16 px-6 max-w-7xl mx-auto text-center">
+    <div class="bg-[#3B82F6] text-white py-16 px-8 rounded-3xl shadow-xl space-y-3">
+      <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight">Experience Life in Your Prime</h2>
+      <p class="text-xs sm:text-sm uppercase tracking-widest text-blue-100">Unlock your body's true potential with daily proeg² nutrition.</p>
+    </div>
+  </section>
+
+  <!-- Section 8: "Explore Our Products" Showcase Grid -->
+  <section class="py-16 px-6 max-w-7xl mx-auto text-center space-y-8">
+    <h2 class="text-3xl font-black uppercase text-[#0B132B] dark:text-white">Explore Our Products</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="aboutProductsGrid"></div>
+    <div>
+      <a href="products.html" class="proeg-btn inline-block">Shop All</a>
+    </div>
+  </section>
+
+  <!-- Section 9: Newsletter Subscription (Peach Box) -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <div class="bg-[#FFD8C2] dark:bg-slate-900 p-10 rounded-3xl text-center space-y-4 shadow-md">
+      <h3 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">Subscribe to Newsletter</h3>
+      <p class="text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300">Be the first to know about exclusive updates, special offers, and wellness tips. Stay connected with proeg²!</p>
+      <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" class="flex gap-2 max-w-md mx-auto pt-2">
+        <input type="email" placeholder="Email" required class="flex-1 p-3.5 border border-slate-300 text-xs uppercase bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none rounded-xl">
+        <button type="submit" class="proeg-btn">Subscribe me</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Section 10: Brand Footnote & Certifications -->
+  <section class="py-12 px-6 max-w-7xl mx-auto text-center text-xs uppercase tracking-widest text-slate-400 border-t border-slate-200 dark:border-slate-800">
+    Certified Ovomet&reg; &bull; Ovoderm&reg; Bioactive Ingredients &bull; ISO 22000 Quality Standard &bull; SIA APF Trading
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('aboutProductsGrid');
+      if (grid && window.proegDB) {
+        grid.innerHTML = proegDB.products.slice(0, 4).map(p => `
+          <div class="proeg-card p-6 flex flex-col justify-between space-y-4 rounded-2xl shadow-sm">
+            <div class="aspect-square bg-slate-50 dark:bg-slate-900 overflow-hidden relative rounded-xl">
+              <span class="absolute top-2 left-2 bg-[#E63946] text-white text-[0.5rem] font-bold uppercase px-2 py-1 rounded-md">${p.badge}</span>
+              <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover rounded-xl">
+            </div>
+            <div class="space-y-1 text-left">
+              <h3 class="font-bold text-xs uppercase text-[#0B132B] dark:text-white">${p.name}</h3>
+              <p class="font-black text-sm pt-1 text-[#0B132B] dark:text-white">&euro;${p.price.toFixed(2)}</p>
+            </div>
+            <button onclick="proegDB.addToCart('${p.id}'); " class="proeg-btn w-full">Add to Cart</button>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>

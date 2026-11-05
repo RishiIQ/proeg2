@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Research Insights | PROEG²</title>
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrYv7bQadLSGQkjXOU1Zk5vYmwK1VUJNSmIiHhdRuMA&s=10" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pt-[115px] bg-slate-50 dark:bg-[#080C14] text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  <script src="js/db.js"></script>
+  <script src="js/layout.js"></script>
+
+  <!-- Section 1: Hero Banner with Relevant Background Image -->
+  <section class="py-24 sm:py-32 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-6 shadow-2xl relative overflow-hidden group transition-all duration-500" style="background-image: linear-gradient(rgba(11,19,43,0.85), rgba(11,19,43,0.85)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=1920');">
+    <div class="max-w-3xl mx-auto space-y-6 relative z-10 backdrop-blur-md bg-[#0B132B]/85 border border-white/10 rounded-2xl p-8 sm:p-12 shadow-2xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E63946]/20 border border-[#E63946]/40 text-[#E63946] text-[0.6rem] font-extrabold uppercase tracking-[0.2em]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse"></span>
+        Research & Articles
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white drop-shadow-md">
+        The PROEG<sup class="text-[#E63946]">2</sup> Journal
+      </h1>
+      <p class="text-xs sm:text-sm uppercase tracking-[0.15em] text-slate-300 max-w-xl mx-auto leading-relaxed">
+        Discover expert insights on egg albumin protein, bio-active membrane collagens, and athletic recovery.
+      </p>
+      <div class="w-12 h-1 bg-[#E63946] mx-auto rounded-full mt-2"></div>
+    </div>
+  </section>
+
+  <!-- Section 2: Marquee Ticker -->
+  <div class="bg-[#0B132B] text-white py-3 overflow-hidden whitespace-nowrap text-[0.65rem] font-extrabold uppercase tracking-[0.2em] border-y border-slate-800">
+    <div class="inline-block animate-marquee">
+      NUTRITIONAL SCIENCE &bull; EGG WHITE ALBUMIN &bull; JOINT MOBILITY &bull; SKIN ELASTICITY &bull; EXPERT WELLNESS GUIDES &bull;
+    </div>
+  </div>
+
+  <!-- Section 3: Blog Category Filter Bar -->
+  <section class="py-8 px-6 max-w-7xl mx-auto">
+    <div class="flex flex-wrap justify-center gap-2" id="blogFilterButtons">
+      <button onclick="filterBlogs('all', this)" class="blog-filter-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-[#0B132B] dark:bg-white text-white dark:text-[#0B132B] shadow-md cursor-pointer" data-filter="all">All Articles</button>
+      <button onclick="filterBlogs('Protein Science', this)" class="blog-filter-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-pointer" data-filter="Protein Science">Protein Science</button>
+      <button onclick="filterBlogs('Joint Health', this)" class="blog-filter-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-pointer" data-filter="Joint Health">Joint Health</button>
+      <button onclick="filterBlogs('Beauty', this)" class="blog-filter-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-pointer" data-filter="Beauty">Beauty</button>
+      <button onclick="filterBlogs('Sustainability', this)" class="blog-filter-btn px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-pointer" data-filter="Sustainability">Sustainability</button>
+    </div>
+  </section>
+
+  <!-- Section 4: Exactly 6 Blog Cards Grid -->
+  <section class="py-12 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogGrid">
+      
+      <!-- Blog 1 -->
+      <div class="proeg-card flex flex-col justify-between rounded-2xl group shadow-sm cursor-pointer" data-category="Protein Science" onclick="openBlogModal(1)">
+        <div class="aspect-[16/9] overflow-hidden rounded-t-2xl">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAarZUZT2ijGZLZOAytBnTasp7po_QfAtHYHknQHVtHwm3ezLg505muE0&s=10" alt="Blog 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-[0.65rem] font-bold uppercase tracking-widest text-[#E63946]">Protein Science &bull; 8 min read</span>
+            <h3 class="font-black text-lg uppercase text-[#0B132B] dark:text-white">Why Egg White Protein Outperforms Whey for Muscle Recovery</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Explore the complete amino acid profile of albumin protein and why it eliminates gastric bloating.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#0B132B] dark:text-white group-hover:text-[#E63946] flex items-center gap-1">Read Article →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog 2 -->
+      <div class="proeg-card flex flex-col justify-between rounded-2xl group shadow-sm cursor-pointer" data-category="Joint Health" onclick="openBlogModal(2)">
+        <div class="aspect-[16/9] overflow-hidden rounded-t-2xl">
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=800" alt="Blog 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-[0.65rem] font-bold uppercase tracking-widest text-[#E63946]">Joint Health &bull; 7 min read</span>
+            <h3 class="font-black text-lg uppercase text-[#0B132B] dark:text-white">The Breakthrough Science of Ovomet® Egg Membrane Collagen</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">How natural glucosamine and chondroitin in egg membrane restore tendon flexibility in 7 days.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#0B132B] dark:text-white group-hover:text-[#E63946] flex items-center gap-1">Read Article →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog 3 -->
+      <div class="proeg-card flex flex-col justify-between rounded-2xl group shadow-sm cursor-pointer" data-category="Beauty" onclick="openBlogModal(3)">
+        <div class="aspect-[16/9] overflow-hidden rounded-t-2xl">
+          <img src="https://phytoceutics.com/cdn/shop/articles/Shopify_blog_image_3_08b55acf-4bcf-4aeb-8393-70f632269152.png?v=1790663874&width=640" alt="Blog 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-[0.65rem] font-bold uppercase tracking-widest text-[#E63946]">Beauty &bull; 6 min read</span>
+            <h3 class="font-black text-lg uppercase text-[#0B132B] dark:text-white">Ovoderm®: Unlocking Skin Elasticity and Natural Hair Glow</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Discover how bio-active collagen peptides stimulate natural hyaluronic acid production from within.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#0B132B] dark:text-white group-hover:text-[#E63946] flex items-center gap-1">Read Article →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog 4 -->
+      <div class="proeg-card flex flex-col justify-between rounded-2xl group shadow-sm cursor-pointer" data-category="Protein Science" onclick="openBlogModal(4)">
+        <div class="aspect-[16/9] overflow-hidden rounded-t-2xl">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2IfWxtQlVWVvP6A-H8txS0d_HhBI35jsHpaqWS0GBTn9nYpPeruZxclM&s=10" alt="Blog 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-[0.65rem] font-bold uppercase tracking-widest text-[#E63946]">Protein Science &bull; 5 min read</span>
+            <h3 class="font-black text-lg uppercase text-[#0B132B] dark:text-white">Dairy-Free Snacking: Why Protein Bars Are Changing the Game</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Say goodbye to heavy sugar crashes. How chewy albumin snack bars fuel sustained afternoon energy.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#0B132B] dark:text-white group-hover:text-[#E63946] flex items-center gap-1">Read Article →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog 5 -->
+      <div class="proeg-card flex flex-col justify-between rounded-2xl group shadow-sm cursor-pointer" data-category="Protein Science" onclick="openBlogModal(5)">
+        <div class="aspect-[16/9] overflow-hidden rounded-t-2xl">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZN-6-_T0F-U2iW9Jt5bQ2YQUNBjesaDT1PHQ3WdtJlGeRAYGg2LMb62q&s=10" alt="Blog 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-[0.65rem] font-bold uppercase tracking-widest text-[#E63946]">Protein Science &bull; 9 min read</span>
+            <h3 class="font-black text-lg uppercase text-[#0B132B] dark:text-white">Understanding 99% Bioavailability in Egg Proteins</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">An in-depth look at amino acid absorption rates and why your muscles utilize egg protein more efficiently.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#0B132B] dark:text-white group-hover:text-[#E63946] flex items-center gap-1">Read Article →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog 6 -->
+      <div class="proeg-card flex flex-col justify-between rounded-2xl group shadow-sm cursor-pointer" data-category="Sustainability" onclick="openBlogModal(6)">
+        <div class="aspect-[16/9] overflow-hidden rounded-t-2xl">
+          <img src="https://veganftamedia.com/wp-content/uploads/2026/05/shutterstock-1139419028-1024x678.jpg" alt="Blog 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+          <div class="space-y-2">
+            <span class="text-[0.65rem] font-bold uppercase tracking-widest text-[#E63946]">Sustainability &bull; 6 min read</span>
+            <h3 class="font-black text-lg uppercase text-[#0B132B] dark:text-white">From European Farm to Shaker: Our Ethical Sourcing Story</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">How SIA APF Trading partners with sustainable cage-free farming cooperatives in Latvia and Europe.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#0B132B] dark:text-white group-hover:text-[#E63946] flex items-center gap-1">Read Article →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 5: Featured Expert Quote -->
+  <section class="py-16 px-6 max-w-5xl mx-auto">
+    <div class="proeg-card p-8 sm:p-12 rounded-3xl text-center space-y-4">
+      <p class="text-lg sm:text-xl font-black uppercase text-[#0B132B] dark:text-white leading-relaxed">
+        "Clean nutrition is not just about what you leave out—it's about the uncompromised bioavailability of what you put in."
+      </p>
+      <span class="text-xs uppercase tracking-widest text-[#E63946] font-bold">— Dr. Maris Ozols, Head of Nutritional Research</span>
+    </div>
+  </section>
+
+  <!-- Section 6: Key Journal Topics -->
+  <section class="py-16 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    <div class="proeg-card p-8 rounded-2xl space-y-2"><h4 class="font-bold uppercase text-sm text-[#E63946] mb-1">Clinical Studies</h4><p class="text-xs text-slate-500">Reviewed trials on egg membrane peptide efficacy and recovery times.</p></div>
+    <div class="proeg-card p-8 rounded-2xl space-y-2"><h4 class="font-bold uppercase text-sm text-[#E63946] mb-1">Nutrition & Recipes</h4><p class="text-xs text-slate-500">Chef-crafted smoothie bowls and high-protein baking guides.</p></div>
+    <div class="proeg-card p-8 rounded-2xl space-y-2"><h4 class="font-bold uppercase text-sm text-[#E63946] mb-1">Supply Chain Transparency</h4><p class="text-xs text-slate-500">Direct reports from our European cage-free farming partners.</p></div>
+  </section>
+
+  <!-- Section 7: Journal FAQ -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <h3 class="text-2xl font-black uppercase text-center mb-8 text-[#0B132B] dark:text-white">Journal FAQs</h3>
+    <div class="space-y-4">
+      <div class="proeg-card p-6 cursor-pointer rounded-2xl" onclick="this.querySelector('.ans').classList.toggle('hidden')">
+        <h4 class="font-bold text-xs uppercase flex justify-between text-[#0B132B] dark:text-white">Can I contribute an article or research paper? <span>+</span></h4>
+        <p class="ans hidden text-xs text-slate-500 mt-2 leading-relaxed">Yes! We welcome submissions from certified nutritionists and sports scientists. Contact our editorial team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Brand Guarantee -->
+  <section class="py-12 px-6 max-w-5xl mx-auto text-center border-t border-slate-200 dark:border-slate-800">
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#E63946]">Evidence-Based Wellness</p>
+    <p class="text-sm font-bold uppercase mt-2 text-[#0B132B] dark:text-white">All articles are peer-reviewed by our internal scientific advisory board.</p>
+  </section>
+
+  <!-- Section 9: Newsletter Subscription -->
+  <section class="bg-[#FDF6F0] dark:bg-slate-900 py-16 px-6 text-center border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-xl mx-auto space-y-4">
+      <h3 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">Subscribe to Journal Insights</h3>
+      <p class="text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300">Receive weekly nutritional studies and expert fitness tips directly in your inbox.</p>
+      <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" class="flex gap-2 pt-2">
+        <input type="email" placeholder="Email address" required class="flex-1 p-3.5 border border-slate-300 dark:border-slate-700 text-xs uppercase bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none rounded-xl">
+        <button type="submit" class="proeg-btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Section 10: Partner Certifications -->
+  <section class="py-12 px-6 max-w-7xl mx-auto text-center text-xs uppercase tracking-widest text-slate-400 border-t border-slate-200 dark:border-slate-800">
+    Certified Ovomet&reg; &bull; Ovoderm&reg; Bioactive Ingredients &bull; ISO 22000 Quality Standard &bull; SIA APF Trading
+  </section>
+
+  <!-- PROFESSIONAL BLURRED MODAL POPUP CONTAINER -->
+  <div id="blogModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 backdrop-blur-md bg-slate-950/70 hidden overflow-y-auto">
+    <div class="bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden relative my-8 animate-in fade-in zoom-in-95 duration-300">
+      <!-- Close Button -->
+      <button onclick="closeBlogModal()" class="absolute top-6 right-6 z-20 w-10 h-10 rounded-full bg-[#0B132B] text-white dark:bg-white dark:text-[#0B132B] flex items-center justify-center font-black text-sm shadow hover:bg-[#E63946] dark:hover:bg-[#E63946] dark:hover:text-white transition-colors cursor-pointer">
+        ✕
+      </button>
+      <!-- Modal Content Box -->
+      <div id="modalContent" class="max-h-[85vh] overflow-y-auto p-6 sm:p-12 space-y-8"></div>
+    </div>
+  </div>
+
+  <script>
+    const blogData = {
+      1: {
+        title: "Why Egg White Protein Outperforms Whey for Muscle Recovery",
+        category: "Protein Science",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAarZUZT2ijGZLZOAytBnTasp7po_QfAtHYHknQHVtHwm3ezLg505muE0&s=10",
+        content: `
+          <div class="space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#E63946]">Protein Science &bull; 8 min read</span>
+            <h1 class="text-3xl sm:text-5xl font-black uppercase text-[#0B132B] dark:text-white">Why Egg White Protein Outperforms Whey for Muscle Recovery</h1>
+            <div class="aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAarZUZT2ijGZLZOAytBnTasp7po_QfAtHYHknQHVtHwm3ezLg505muE0&s=10" alt="Blog 1" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">1. The Complete Amino Acid Spectrum and Muscle Protein Synthesis</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              When evaluating the efficacy of dietary protein sources for athletic recovery and hypertrophy, the primary metric of success remains the amino acid composition and biological value. Egg white protein is universally recognized by nutritional scientists as a gold-standard reference protein because it delivers a comprehensive and perfectly balanced ratio of all nine essential amino acids that the human body cannot synthesize independently. This includes remarkably high concentrations of branched-chain amino acids (BCAAs)—specifically leucine, isoleucine, and valine—which act as the primary metabolic triggers for mammalian target of rapamycin (mTOR) pathway activation, initiating robust muscle protein synthesis following strenuous resistance training sessions.
+            </p>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Unlike plant-based alternative proteins that frequently suffer from limiting amino acids such as methionine or lysine, egg albumin provides an unbroken chain of building blocks. This ensures that muscle micro-tears repair rapidly without requiring massive caloric loads or proprietary amino-spiking formulas.
+            </p>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">2. Eradicating Gastric Distress, Lactose Intolerance, and Bloating</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              A pervasive hurdle for athletes consuming traditional dairy-based whey concentrates and isolates is sub-clinical or overt lactose intolerance. Lactose malabsorption triggers abdominal cramping, excessive flatulence, systemic water retention, and severe bloating, which severely impairs training focus and daily comfort. Because proeg² egg white protein is 100% dairy-free and lactose-free, it bypasses lactase enzyme deficiency pathways entirely. 
+            </p>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Furthermore, the delicate filtration and pasteurization protocols employed during our manufacturing process ensure that anti-nutritional factors are neutralized. The result is a smooth, highly digestible shake that allows your digestive tract to remain calm, focused, and unburdened, maximizing nutrient uptake efficiency.
+            </p>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">3. Sustained Absorption Kinetics and Nitrogen Retention</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              While whey hydrolysates absorb at an explosive rate that triggers rapid blood amino acid spikes followed by a steep drop-off, egg white albumin exhibits a sustained digestion curve. This moderate absorption velocity ensures a prolonged, steady trickle of amino acids into the bloodstream over a multi-hour window. This sustained nitrogen retention creates an ideal anabolic environment throughout the day, preventing catabolic muscle breakdown during long work shifts or extended fasting periods.
+            </p>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Incorporating proeg² into your morning routine guarantees stable blood amino levels, keeping satiety high and cravings at bay.
+            </p>
+          </div>
+        `
+      },
+      2: {
+        title: "The Breakthrough Science of Ovomet® Egg Membrane Collagen",
+        category: "Joint Health",
+        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=1200",
+        content: `
+          <div class="space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#E63946]">Joint Health &bull; 7 min read</span>
+            <h1 class="text-3xl sm:text-5xl font-black uppercase text-[#0B132B] dark:text-white">The Breakthrough Science of Ovomet® Egg Membrane Collagen</h1>
+            <div class="aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+              <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=1200" alt="Blog 2" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">1. Natural Synovial Fluid Lubrication and Cartilage Restoration</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Joint health is the cornerstone of longevity for runners, weightlifters, and active individuals alike. Traditional bovine and marine collagens require massive daily dosages (10g to 20g) and months of consistent supplementation before users notice measurable improvements in joint comfort. In stark contrast, Ovomet® natural egg membrane extract delivers a potent matrix of bioactive compounds—including native type I, V, and X collagen, hyaluronic acid, glucosamine, chondroitin sulfate, and over 500 distinct connective tissue proteins—at a remarkably low clinical dosage of just 300mg per day.
+            </p>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Clinical trials indicate that these natural matrix molecules work synergistically to reduce local joint inflammation, stimulate chondrocyte proliferation, and replenish synovial fluid viscosity, resulting in noticeable mobility enhancements within 5 to 7 days.
+            </p>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">2. Mitigating High-Impact Training Stress on Tendons</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Heavy squats, sprinting, and repetitive jumping place immense mechanical shear stress on patellar and Achilles tendons. Over time, micro-trauma accumulates faster than the body can synthesize new collagen fibrils, leading to chronic tendinopathy and nagging joint stiffness. Supplementing with proeg² Mobility formulas floods systemic circulation with targeted egg membrane peptides that signal fibroblasts to accelerate extracellular matrix synthesis. 
+            </p>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Athletes report faster turnaround times between heavy leg sessions and a dramatic reduction in morning joint stiffness.
+            </p>
+          </div>
+        `
+      },
+      3: {
+        title: "Ovoderm®: Unlocking Skin Elasticity and Natural Hair Glow",
+        category: "Beauty",
+        image: "https://phytoceutics.com/cdn/shop/articles/Shopify_blog_image_3_08b55acf-4bcf-4aeb-8393-70f632269152.png?v=1790663874&width=640",
+        content: `
+          <div class="space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#E63946]">Beauty &bull; 6 min read</span>
+            <h1 class="text-3xl sm:text-5xl font-black uppercase text-[#0B132B] dark:text-white">Ovoderm®: Unlocking Skin Elasticity and Natural Hair Glow</h1>
+            <div class="aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+              <img src="https://phytoceutics.com/cdn/shop/articles/Shopify_blog_image_3_08b55acf-4bcf-4aeb-8393-70f632269152.png?v=1790663874&width=640" alt="Blog 3" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">1. Dermal Matrix Hydration and Collagen Density</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              True aesthetic radiance begins at the cellular level within the dermal layer of the skin. As we age, endogenous collagen synthesis declines steadily, leading to loss of skin firmness, fine facial lines, and diminished moisture retention. Ovoderm® bio-active egg membrane collagen provides a concentrated source of elastin, desmosine, isodesmosine, and hyaluronic acid, which act directly upon dermal fibroblasts to stimulate fresh collagen production.
+            </p>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Clinical dermal evaluations demonstrate marked improvements in skin elasticity, reduction in crow's feet depth, and enhanced hydration barrier strength after just four weeks of daily intake.
+            </p>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">2. Keratin Support for Stronger Nails and Vibrant Hair</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Hair follicles and nail beds require robust sulfur-containing amino acid networks and structural proteins to resist splitting, brittleness, and excessive shedding. The unique biochemical composition of Ovoderm® supplies essential micronutrients that fortify keratin architecture from the root outward. Users frequently observe faster nail growth and a noticeable enhancement in natural hair gloss and scalp vitality.
+            </p>
+          </div>
+        `
+      },
+      4: {
+        title: "Dairy-Free Snacking: Why Protein Bars Are Changing the Game",
+        category: "Protein Science",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2IfWxtQlVWVvP6A-H8txS0d_HhBI35jsHpaqWS0GBTn9nYpPeruZxclM&s=10",
+        content: `
+          <div class="space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#E63946]">Protein Science &bull; 5 min read</span>
+            <h1 class="text-3xl sm:text-5xl font-black uppercase text-[#0B132B] dark:text-white">Dairy-Free Snacking: Why Protein Bars Are Changing the Game</h1>
+            <div class="aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2IfWxtQlVWVvP6A-H8txS0d_HhBI35jsHpaqWS0GBTn9nYpPeruZxclM&s=10" alt="Blog 4" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">1. Eliminating Sugar Spikes and Afternoon Lethargy</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Commercial snack bars are frequently packed with hidden corn syrups, palm oils, and inferior soy protein isolates that trigger rapid insulin surges followed by severe afternoon lethargy. proeg² protein bars are engineered differently: anchored in clean egg white albumin and natural fibers, they deliver steady macronutrient partitioning that keeps blood sugar balanced and mental clarity razor-sharp throughout hectic workday schedules.
+            </p>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">2. Chewy Texture Without Artificial Bindings</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Achieving a decadent, chewy texture without relying on artificial sugar alcohols or chemical binders is a major confectionery feat. By combining natural fruit purees, nuts, and high-grade albumin, proeg² snack bars offer a genuinely satisfying treat that fits effortlessly into strict athletic meal prep regimens.
+            </p>
+          </div>
+        `
+      },
+      5: {
+        title: "Understanding 99% Bioavailability in Egg Proteins",
+        category: "Protein Science",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZN-6-_T0F-U2iW9Jt5bQ2YQUNBjesaDT1PHQ3WdtJlGeRAYGg2LMb62q&s=10",
+        content: `
+          <div class="space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#E63946]">Protein Science &bull; 9 min read</span>
+            <h1 class="text-3xl sm:text-5xl font-black uppercase text-[#0B132B] dark:text-white">Understanding 99% Bioavailability in Egg Proteins</h1>
+            <div class="aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZN-6-_T0F-U2iW9Jt5bQ2YQUNBjesaDT1PHQ3WdtJlGeRAYGg2LMb62q&s=10" alt="Blog 5" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">1. The Biological Value and Net Protein Utilization Metrics</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              In nutritional science, biological value (BV) measures how efficiently a protein source is incorporated into bodily tissue. Egg protein has historically held a BV score of 100—serving as the absolute benchmark against which all other proteins are evaluated. Net Protein Utilization (NPU) and Protein Digestibility-Corrected Amino Acid Score (PDCAAS) further confirm that egg albumin achieves near-total absorption across the human intestinal wall.
+            </p>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              When you consume proeg² egg protein, virtually 99% of the ingested amino acids reach systemic circulation, ensuring zero metabolic waste and maximum physiological return on your nutritional investment.
+            </p>
+          </div>
+        `
+      },
+      6: {
+        title: "From European Farm to Shaker: Our Ethical Sourcing Story",
+        category: "Sustainability",
+        image: "https://veganftamedia.com/wp-content/uploads/2026/05/shutterstock-1139419028-1024x678.jpg",
+        content: `
+          <div class="space-y-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-[#E63946]">Sustainability &bull; 6 min read</span>
+            <h1 class="text-3xl sm:text-5xl font-black uppercase text-[#0B132B] dark:text-white">From European Farm to Shaker: Our Ethical Sourcing Story</h1>
+            <div class="aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+              <img src="https://veganftamedia.com/wp-content/uploads/2026/05/shutterstock-1139419028-1024x678.jpg" alt="Blog 6" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-6">
+            <h2 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">1. Partnering with Sustainable European Cooperatives</h2>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              Quality, safety, and ethics begin at the very root of the agricultural supply chain. SIA APF Trading maintains strict, direct partnerships with certified cage-free European farming cooperatives in Latvia and neighboring regions. These farming partners adhere to uncompromising animal welfare standards, ensuring hens roam freely in enriched environments with natural sunlight and wholesome grain diets free from animal by-products.
+            </p>
+            <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 leading-relaxed">
+              By maintaining absolute traceability from farm gate to finished canister, we guarantee that every serving of proeg² represents sustainable, environmentally conscious nutrition you can trust implicitly.
+            </p>
+          </div>
+        `
+      }
+    };
+
+    function openBlogModal(id) {
+      const blog = blogData[id];
+      if (!blog) return;
+      document.getElementById('modalContent').innerHTML = blog.content;
+      document.getElementById('blogModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBlogModal() {
+      document.getElementById('blogModal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function filterBlogs(category, buttonElement) {
+      const buttons = document.querySelectorAll('.blog-filter-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-[#0B132B]', 'dark:bg-white', 'text-white', 'dark:text-[#0B132B]', 'shadow-md');
+        btn.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'border-slate-200', 'dark:border-slate-700');
+      });
+      if (buttonElement) {
+        buttonElement.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'border-slate-200', 'dark:border-slate-700');
+        buttonElement.classList.add('bg-[#0B132B]', 'dark:bg-white', 'text-white', 'dark:text-[#0B132B]', 'shadow-md');
+      }
+
+      const cards = document.querySelectorAll('#blogGrid > div');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

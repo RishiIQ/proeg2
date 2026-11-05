@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | PROEG² Support & Wholesale</title>
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrYv7bQadLSGQkjXOU1Zk5vYmwK1VUJNSmIiHhdRuMA&s=10" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pt-[115px] bg-slate-50 dark:bg-[#080C14] text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  <script src="js/db.js"></script>
+  <script src="js/layout.js"></script>
+
+  <!-- Section 1: Hero Header with HQ Background Image -->
+  <section class="py-24 sm:py-32 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-6 shadow-2xl relative overflow-hidden group transition-all duration-500" style="background-image:url('https://img.magnific.com/premium-photo/website-internet-contact-us-page-concept-with-phone-email-mail-icons-symbol-telephone-mail-address-website-page-contact-us-web-banner-copy-space-grey-background_256259-3515.jpg?semt=ais_hybrid&w=740&q=80');">
+    <div class="absolute inset-0 bg-gradient-to-t from-[#080C14] via-[#0B132B]/75 to-transparent pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto space-y-6 relative z-10 backdrop-blur-md bg-[#0B132B]/85 border border-white/10 rounded-2xl p-8 sm:p-12 shadow-2xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E63946]/20 border border-[#E63946]/40 text-[#E63946] text-[0.6rem] font-extrabold uppercase tracking-[0.2em]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse"></span>
+        24/7 Concierge Support
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white drop-shadow-md">
+        Get in Touch with proeg<sup class="text-[#E63946]">2</sup>
+      </h1>
+      <p class="text-xs sm:text-sm uppercase tracking-[0.15em] text-slate-300 max-w-xl mx-auto leading-relaxed">
+        Reach out to our science team, wholesale distribution managers, or customer care specialists.
+      </p>
+      <div class="w-12 h-1 bg-[#E63946] mx-auto rounded-full mt-2"></div>
+    </div>
+  </section>
+
+  <!-- Section 2: Interactive Contact Form & Department Select -->
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Contact Form (2 Columns) -->
+      <div class="lg:col-span-2 proeg-card p-8 sm:p-12 rounded-3xl space-y-6 shadow-xl border border-slate-200 dark:border-slate-800">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#E63946]">Send a Message</span>
+          <h2 class="text-2xl sm:text-3xl font-black uppercase">How can we help you today?</h2>
+        </div>
+        <form onsubmit="event.preventDefault(); alert('Your message has been dispatched successfully! Our team will respond within 2 hours.'); this.reset();" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Your Full Name</label>
+              <input type="text" placeholder="e.g. Janis Berzins" required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
+            </div>
+            <div class="space-y-1">
+              <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Email Address</label>
+              <input type="email" placeholder="janis@example.com" required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Inquiry Department</label>
+              <select class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
+                <option>Customer Support & Orders</option>
+                <option>Wholesale & B2B Distribution</option>
+                <option>SaaS Telemetry & API Access</option>
+                <option>Press & Media Relations</option>
+              </select>
+            </div>
+            <div class="space-y-1">
+              <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Phone Number (Optional)</label>
+              <input type="tel" placeholder="+371 XXXXXXXX" class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
+            </div>
+          </div>
+          <div class="space-y-1">
+    <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Your Message</label>
+    <textarea rows="5" placeholder="Write your inquiry here..." required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl h-32 resize-none text-slate-900 dark:text-white"></textarea>
+</div>
+          <button type="submit" class="proeg-btn w-full py-4 text-center">Dispatch Inquiry</button>
+        </form>
+      </div>
+
+      <!-- Quick Contact Sidebar -->
+      <div class="space-y-6">
+        <div class="proeg-card p-6 sm:p-8 rounded-3xl space-y-6 shadow-xl border border-slate-200 dark:border-slate-800">
+          <h3 class="text-lg font-black uppercase tracking-tight pb-4 border-b border-slate-200 dark:border-slate-800">Direct Contacts</h3>
+          <div class="space-y-4 text-xs uppercase tracking-wider">
+            <div>
+              <p class="text-slate-400 text-[0.65rem]">Headquarters</p>
+              <p class="font-bold mt-1">SIA APF Trading, Mārupe, Latvia</p>
+            </div>
+            <div>
+              <p class="text-slate-400 text-[0.65rem]">General Inquiries</p>
+              <p class="font-bold mt-1 text-[#E63946]">support@proeg2.com</p>
+            </div>
+            <div>
+              <p class="text-slate-400 text-[0.65rem]">Wholesale & B2B Desk</p>
+              <p class="font-bold mt-1 text-[#E63946]">b2b@proeg2.com</p>
+            </div>
+            <div>
+              <p class="text-slate-400 text-[0.65rem]">Telemetry & SaaS Support</p>
+              <p class="font-bold mt-1 text-[#E63946]">saas@proeg2.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#0B132B] text-white p-6 sm:p-8 rounded-3xl space-y-4 shadow-xl">
+          <span class="text-[0.65rem] font-bold uppercase tracking-widest text-[#E63946]">Live Status</span>
+          <h4 class="text-lg font-black uppercase">Support Telemetry Active</h4>
+          <p class="text-xs text-slate-300 leading-relaxed uppercase">Our Baltic support nodes are currently operating at 100% capacity with average response times under 45 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Corporate Headquarters Location Card -->
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="proeg-card p-8 sm:p-12 rounded-3xl text-center space-y-6">
+      <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#E63946]">Global Operations</span>
+      <h2 class="text-3xl sm:text-4xl font-black uppercase">European Distribution Center</h2>
+      <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Managed by SIA APF Trading in the innovation hub of Mārupe, Latvia. Equipped with climate-controlled cold storage and high-throughput automated packing lines.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 4: Office Hours & Operational Telemetry -->
+  <section class="py-16 px-6 max-w-7xl mx-auto bg-slate-100 dark:bg-slate-900/50 rounded-3xl my-8">
+    <div class="text-center space-y-2 mb-10">
+      <h2 class="text-2xl font-black uppercase">Operational Hours</h2>
+      <p class="text-xs uppercase tracking-widest text-slate-500">When our team is live across time zones.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto text-center">
+      <div class="proeg-card p-6 rounded-2xl space-y-2">
+        <h4 class="font-bold text-xs uppercase text-[#E63946]">Customer Service</h4>
+        <p class="text-xs font-bold uppercase">Mon - Fri: 08:00 - 20:00 EET</p>
+        <p class="text-[0.65rem] text-slate-400 uppercase">Weekend Email Support Only</p>
+      </div>
+      <div class="proeg-card p-6 rounded-2xl space-y-2">
+        <h4 class="font-bold text-xs uppercase text-[#E63946]">B2B Wholesale Desk</h4>
+        <p class="text-xs font-bold uppercase">Mon - Fri: 09:00 - 18:00 EET</p>
+        <p class="text-[0.65rem] text-slate-400 uppercase">Dedicated Account Managers</p>
+      </div>
+      <div class="proeg-card p-6 rounded-2xl space-y-2">
+        <h4 class="font-bold text-xs uppercase text-[#E63946]">SaaS Telemetry</h4>
+        <p class="text-xs font-bold uppercase">24 / 7 / 365 Automated Uptime</p>
+        <p class="text-[0.65rem] text-slate-400 uppercase">Engineered for Zero Downtime</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Departmental Direct Directory -->
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="text-center space-y-2 mb-10">
+      <h2 class="text-2xl font-black uppercase">Department Directory</h2>
+      <p class="text-xs uppercase tracking-widest text-slate-500">Connect directly with the appropriate team lead.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="proeg-card p-8 rounded-2xl space-y-3">
+        <span class="text-[0.65rem] font-bold text-[#E63946] uppercase">Science & Quality</span>
+        <h3 class="font-bold text-sm uppercase">Dr. Roberts Ozols</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed uppercase">Head of Biochemical Research & Ovomet® Formulation Standards.</p>
+      </div>
+      <div class="proeg-card p-8 rounded-2xl space-y-3">
+        <span class="text-[0.65rem] font-bold text-[#E63946] uppercase">Logistics & Supply</span>
+        <h3 class="font-bold text-sm uppercase">Elina Kalnina</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed uppercase">Director of European Distribution & Cold-Chain Operations.</p>
+      </div>
+      <div class="proeg-card p-8 rounded-2xl space-y-3">
+        <span class="text-[0.65rem] font-bold text-[#E63946] uppercase">SaaS Engineering</span>
+        <h3 class="font-bold text-sm uppercase">Kaspars Zvaigzne</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed uppercase">Chief Technology Officer & Telemetry Architecture Lead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: FAQ Quick Dropdowns -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <h3 class="text-2xl font-black uppercase text-center mb-8">Contact & Response FAQs</h3>
+    <div class="space-y-4">
+      <div class="proeg-card p-6 cursor-pointer rounded-2xl" onclick="this.querySelector('.ans').classList.toggle('hidden')">
+        <h4 class="font-bold text-xs uppercase flex justify-between">How quickly will I receive a reply? <span>+</span></h4>
+        <p class="ans hidden text-xs text-slate-500 mt-2 leading-relaxed">Our support desk typically resolves inquiries within 2 hours during standard business hours.</p>
+      </div>
+      <div class="proeg-card p-6 cursor-pointer rounded-2xl" onclick="this.querySelector('.ans').classList.toggle('hidden')">
+        <h4 class="font-bold text-xs uppercase flex justify-between">Can I request product samples for my gym? <span>+</span></h4>
+        <p class="ans hidden text-xs text-slate-500 mt-2 leading-relaxed">Yes! Gym owners and fitness coaches can submit a wholesale inquiry to receive complimentary sample packs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Global Distribution Hubs Banner -->
+  <section class="bg-[#0B132B] text-white py-20 px-6 text-center my-8">
+    <div class="max-w-3xl mx-auto space-y-4">
+      <h3 class="text-3xl font-black uppercase">Serving 28+ European Countries</h3>
+      <p class="text-xs uppercase tracking-widest text-slate-300">From the Baltics to Scandinavia and Western Europe, our distribution network ensures rapid fulfillment.</p>
+    </div>
+  </section>
+
+  <!-- Section 8: Interactive Customer Satisfaction Feedback -->
+  <section class="py-16 px-6 max-w-4xl mx-auto text-center">
+    <div class="proeg-card p-8 sm:p-12 rounded-3xl space-y-4">
+      <h3 class="text-xl font-black uppercase">Were you satisfied with our support?</h3>
+      <p class="text-xs uppercase tracking-widest text-slate-500">Rate your experience to help us improve our concierge service.</p>
+      <div class="flex justify-center gap-4 pt-2">
+        <button onclick="alert('Thank you for your positive feedback!');" class="px-6 py-3 bg-[#E63946] text-white text-xs font-bold uppercase rounded-xl hover:opacity-90">⭐⭐⭐⭐⭐ Excellent</button>
+        <button onclick="alert('Thank you! Our support director will review your feedback.');" class="px-6 py-3 bg-slate-200 dark:bg-slate-800 text-xs font-bold uppercase rounded-xl hover:opacity-90">Needs Improvement</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Newsletter Sign-up -->
+  <section class="bg-[#FDF6F0] dark:bg-slate-900 py-16 px-6 text-center border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-xl mx-auto space-y-4">
+      <h3 class="text-xl font-black uppercase text-[#0B132B] dark:text-white">Join the proeg² Community</h3>
+      <p class="text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300">Stay connected with our research updates and community announcements.</p>
+      <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" class="flex gap-2 pt-2">
+        <input type="email" placeholder="Email address" required class="flex-1 p-3.5 border border-slate-300 dark:border-slate-700 text-xs uppercase bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none rounded-xl">
+        <button type="submit" class="proeg-btn">Join</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Section 10: Partner Certifications -->
+  <section class="py-12 px-6 max-w-7xl mx-auto text-center text-xs uppercase tracking-widest text-slate-400 border-t border-slate-200 dark:border-slate-800">
+    Certified Ovomet&reg; &bull; Ovoderm&reg; Bioactive Ingredients &bull; ISO 22000 Quality Standard &bull; SIA APF Trading
+  </section>
+</body>
+</html>

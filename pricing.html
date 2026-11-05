@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Subscriptions | proeg²</title>
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrYv7bQadLSGQkjXOU1Zk5vYmwK1VUJNSmIiHhdRuMA&s=10" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pt-[115px] bg-slate-50 dark:bg-[#080C14] text-slate-900 dark:text-slate-100 transition-colors duration-300">
+  <script src="js/db.js"></script>
+  <script src="js/layout.js"></script>
+
+  <!-- Section 1: Hero Banner with HQ Background Image -->
+  <section class="py-24 sm:py-32 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-6 shadow-2xl relative overflow-hidden group transition-all duration-500" style="background-image: linear-gradient(rgba(11,19,43,0.85), rgba(11,19,43,0.85)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuYAib7dF4qPRJS_DG5QufzEnHODrLDtDse0rw_37xF1McPWlgF9toC9M&s=10');">
+    <div class="max-w-3xl mx-auto space-y-6 relative z-10 backdrop-blur-md bg-[#0B132B]/85 border border-white/10 rounded-2xl p-8 sm:p-12 shadow-2xl">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E63946]/20 border border-[#E63946]/40 text-[#E63946] text-[0.6rem] font-extrabold uppercase tracking-[0.2em]">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse"></span>
+        Flexible Subscriptions
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white drop-shadow-md">
+        Investment in Prime
+      </h1>
+      <p class="text-xs sm:text-sm uppercase tracking-[0.15em] text-slate-300 max-w-xl mx-auto leading-relaxed">
+        Choose between monthly nutritional courses for peak vitality or enterprise SaaS telemetry tiers for your business.
+      </p>
+      <div class="w-12 h-1 bg-[#E63946] mx-auto rounded-full mt-2"></div>
+    </div>
+  </section>
+
+  <!-- Section 2: Marquee Ticker -->
+  <div class="bg-[#0B132B] text-white py-3 overflow-hidden whitespace-nowrap text-[0.65rem] font-extrabold uppercase tracking-[0.2em] border-y border-slate-800">
+    <div class="inline-block animate-marquee">
+      PERMANENT SUBSCRIBER PRICING &bull; FREE BALTIC DELIVERY &bull; B2B SAAS TELEMETRY &bull; 30-DAY SATISFACTION GUARANTEE &bull;
+    </div>
+  </div>
+
+  <!-- Section 3: Billing Cycle Toggle Controls -->
+  <section class="py-10 px-6 max-w-7xl mx-auto text-center">
+    <div class="inline-flex items-center p-1.5 bg-slate-200 dark:bg-slate-800 rounded-2xl gap-2 shadow-inner">
+      <button onclick="setBillingCycle('monthly')" id="monthlyBtn" class="px-6 py-3 rounded-xl font-black text-xs uppercase tracking-wider bg-[#0B132B] text-white transition-all shadow-md cursor-pointer">Monthly Billed</button>
+      <button onclick="setBillingCycle('annual')" id="annualBtn" class="px-6 py-3 rounded-xl font-black text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300 transition-all cursor-pointer">Annual Billed <span class="text-[#E63946] text-[0.6rem] font-bold ml-1">(Save 20%)</span></button>
+    </div>
+  </section>
+
+  <!-- Section 4: Main Pricing Tiers Grid -->
+  <section class="py-12 px-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Tier 1: Starter Nutrition Course -->
+      <div class="proeg-card p-8 rounded-3xl flex flex-col justify-between space-y-6 relative border border-slate-200 dark:border-slate-800">
+        <div class="space-y-4">
+          <span class="text-[0.65rem] font-bold uppercase tracking-widest text-[#E63946]">B2C Nutritional Course</span>
+          <h3 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">Starter Vitality</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Ideal for beginners wanting clean daily protein and natural recovery support.</p>
+          <div class="pt-4 pb-2 border-t border-slate-100 dark:border-slate-800">
+            <span class="text-4xl font-black text-[#0B132B] dark:text-white price-starter">&euro;39</span>
+            <span class="text-xs text-slate-500 uppercase tracking-wider"> / month</span>
+          </div>
+          <ul class="space-y-3 text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300 pt-2">
+            <li class="flex items-center gap-2">✓ 1x Albumin Protein Canister</li>
+            <li class="flex items-center gap-2">✓ Free Baltic Shipping</li>
+            <li class="flex items-center gap-2">✓ Community App Access</li>
+            <li class="flex items-center gap-2 text-slate-400">✕ Ovomet® Joint Complex</li>
+          </ul>
+        </div>
+        <button onclick="proegDB.addToCart('prod-1'); alert('Starter plan added to cart!');" class="proeg-btn w-full">Select Starter</button>
+      </div>
+
+      <!-- Tier 2: Pro Athlete Course (Featured) -->
+      <div class="proeg-card p-8 rounded-3xl flex flex-col justify-between space-y-6 relative border-2 border-[#E63946] shadow-2xl scale-[1.02] bg-white dark:bg-slate-900">
+        <div class="space-y-4">
+          <span class="text-[0.65rem] font-bold uppercase tracking-widest text-[#E63946]">Ultimate Performance</span>
+          <h3 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">Pro Athlete</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Complete nutrition and joint recovery suite for high-intensity athletes.</p>
+          <div class="pt-4 pb-2 border-t border-slate-100 dark:border-slate-800">
+            <span class="text-4xl font-black text-[#0B132B] dark:text-white price-pro">&euro;79</span>
+            <span class="text-xs text-slate-500 uppercase tracking-wider"> / month</span>
+          </div>
+          <ul class="space-y-3 text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300 pt-2">
+            <li class="flex items-center gap-2">✓ 2x Albumin Protein Canisters</li>
+            <li class="flex items-center gap-2">✓ Ovomet® Joint Support Caps</li>
+            <li class="flex items-center gap-2">✓ Priority Express Dispatch</li>
+            <li class="flex items-center gap-2">✓ 1-on-1 Nutritionist Consult</li>
+          </ul>
+        </div>
+        <button onclick="proegDB.addToCart('prod-2'); alert('Pro Athlete plan added to cart!');" class="proeg-btn w-full bg-[#E63946] text-white hover:bg-[#0B132B]">Select Pro Athlete</button>
+      </div>
+
+      <!-- Tier 3: B2B SaaS Telemetry Enterprise -->
+      <div class="proeg-card p-8 rounded-3xl flex flex-col justify-between space-y-6 relative border border-slate-200 dark:border-slate-800">
+        <div class="space-y-4">
+          <span class="text-[0.65rem] font-bold uppercase tracking-widest text-[#E63946]">B2B SaaS Analytics</span>
+          <h3 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">Enterprise Telemetry</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Real-time supply chain tracking and automated restocking dashboards for gyms.</p>
+          <div class="pt-4 pb-2 border-t border-slate-100 dark:border-slate-800">
+            <span class="text-4xl font-black text-[#0B132B] dark:text-white price-enterprise">&euro;199</span>
+            <span class="text-xs text-slate-500 uppercase tracking-wider"> / month</span>
+          </div>
+          <ul class="space-y-3 text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300 pt-2">
+            <li class="flex items-center gap-2">✓ Unlimited API Telemetry Calls</li>
+            <li class="flex items-center gap-2">✓ Pallet-Scale Grain Sourcing</li>
+            <li class="flex items-center gap-2">✓ Dedicated Account Manager</li>
+            <li class="flex items-center gap-2">✓ Custom ERP Integrations</li>
+          </ul>
+        </div>
+        <button onclick="alert('Redirecting to B2B Sales Portal...');" class="proeg-btn w-full">Contact B2B Sales</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 5: Feature Comparison Matrix Table -->
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <div class="text-center space-y-2 mb-12">
+      <h2 class="text-3xl font-black uppercase text-[#0B132B] dark:text-white">Plan Comparison Matrix</h2>
+      <p class="text-xs uppercase tracking-widest text-slate-500">Detailed breakdown of nutritional and telemetry inclusions.</p>
+    </div>
+    <div class="proeg-card overflow-x-auto rounded-3xl">
+      <table class="w-full text-left border-collapse text-xs uppercase">
+        <thead>
+          <tr class="border-b border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300">
+            <th class="p-4 sm:p-6 font-black">Feature</th>
+            <th class="p-4 sm:p-6 font-black text-center">Starter</th>
+            <th class="p-4 sm:p-6 font-black text-center text-[#E63946]">Pro Athlete</th>
+            <th class="p-4 sm:p-6 font-black text-center">Enterprise</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+          <tr>
+            <td class="p-4 sm:p-6 font-bold">Protein Albumin Canisters</td>
+            <td class="p-4 sm:p-6 text-center">1 Per Month</td>
+            <td class="p-4 sm:p-6 text-center font-bold text-[#E63946]">2 Per Month</td>
+            <td class="p-4 sm:p-6 text-center">Bulk Wholesale</td>
+          </tr>
+          <tr>
+            <td class="p-4 sm:p-6 font-bold">Ovomet® Joint Supplement</td>
+            <td class="p-4 sm:p-6 text-center text-slate-400">✕</td>
+            <td class="p-4 sm:p-6 text-center font-bold text-emerald-600">Included</td>
+            <td class="p-4 sm:p-6 text-center font-bold text-emerald-600">Included</td>
+          </tr>
+          <tr>
+            <td class="p-4 sm:p-6 font-bold">B2B SaaS Telemetry Access</td>
+            <td class="p-4 sm:p-6 text-center text-slate-400">✕</td>
+            <td class="p-4 sm:p-6 text-center text-slate-400">✕</td>
+            <td class="p-4 sm:p-6 text-center font-bold text-emerald-600">Full Access</td>
+          </tr>
+          <tr>
+            <td class="p-4 sm:p-6 font-bold">Cancellation Policy</td>
+            <td class="p-4 sm:p-6 text-center">Anytime</td>
+            <td class="p-4 sm:p-6 text-center">Anytime</td>
+            <td class="p-4 sm:p-6 text-center">Annual Contract</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section 6: Enterprise Custom Wholesale Callout -->
+  <section class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="bg-[#0B132B] text-white p-8 sm:p-16 rounded-3xl text-center space-y-6 shadow-2xl relative overflow-hidden">
+      <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#E63946]">Wholesale & Gym Partnerships</span>
+      <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight">Need Pallet-Scale Deliveries?</h2>
+      <p class="text-slate-300 text-xs sm:text-sm uppercase tracking-wider max-w-2xl mx-auto leading-relaxed">
+        We partner directly with fitness chains and European distributors to supply bulk egg white protein and automated inventory telemetry.
+      </p>
+      <div>
+        <a href="contact.html" class="proeg-btn bg-white text-[#0B132B] inline-block">Request Wholesale Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Customer Testimonial Badges -->
+  <section class="py-16 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    <div class="proeg-card p-8 rounded-2xl space-y-3">
+      <p class="text-xs uppercase font-bold text-slate-600 dark:text-slate-300 leading-relaxed">"Switching to the Pro Athlete plan eliminated my post-workout bloating entirely. Incredible energy!"</p>
+      <span class="text-[0.65rem] uppercase tracking-widest text-[#E63946] font-bold">— Kaspars B., Riga</span>
+    </div>
+    <div class="proeg-card p-8 rounded-2xl space-y-3">
+      <p class="text-xs uppercase font-bold text-slate-600 dark:text-slate-300 leading-relaxed">"The B2B SaaS telemetry gives our gym chain real-time inventory tracking across 12 locations."</p>
+      <span class="text-[0.65rem] uppercase tracking-widest text-[#E63946] font-bold">— Elina S., Tallinn</span>
+    </div>
+    <div class="proeg-card p-8 rounded-2xl space-y-3">
+      <p class="text-xs uppercase font-bold text-slate-600 dark:text-slate-300 leading-relaxed">"Flexible subscription management and fast delivery straight from Mārupe."</p>
+      <span class="text-[0.65rem] uppercase tracking-widest text-[#E63946] font-bold">— Tomas V., Vilnius</span>
+    </div>
+  </section>
+
+  <!-- Section 8: Interactive Pricing FAQs -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <h3 class="text-2xl font-black uppercase text-center mb-8 text-[#0B132B] dark:text-white">Pricing & Subscription FAQs</h3>
+    <div class="space-y-4">
+      <div class="proeg-card p-6 cursor-pointer rounded-2xl" onclick="this.querySelector('.ans').classList.toggle('hidden')">
+        <h4 class="font-bold text-xs uppercase flex justify-between text-[#0B132B] dark:text-white">Can I pause or cancel my subscription anytime? <span>+</span></h4>
+        <p class="ans hidden text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">Yes! You can pause, skip a delivery, or cancel your B2C subscription instantly from your account dashboard with zero cancellation penalties.</p>
+      </div>
+      <div class="proeg-card p-6 cursor-pointer rounded-2xl" onclick="this.querySelector('.ans').classList.toggle('hidden')">
+        <h4 class="font-bold text-xs uppercase flex justify-between text-[#0B132B] dark:text-white">How does annual billing work? <span>+</span></h4>
+        <p class="ans hidden text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">Annual billing grants you a permanent 20% discount applied instantly to all 12 monthly shipments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Newsletter Sign-up -->
+  <section class="bg-[#FDF6F0] dark:bg-slate-900 py-16 px-6 text-center border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-xl mx-auto space-y-4">
+      <h3 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">Stay Updated on Member Perks</h3>
+      <p class="text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300">Receive exclusive discount codes and nutrition research alerts.</p>
+      <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" class="flex gap-2 pt-2">
+        <input type="email" placeholder="Email address" required class="flex-1 p-3.5 border border-slate-300 dark:border-slate-700 text-xs uppercase bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none rounded-xl">
+        <button type="submit" class="proeg-btn">Join</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Section 10: Partner Certifications -->
+  <section class="py-12 px-6 max-w-7xl mx-auto text-center text-xs uppercase tracking-widest text-slate-400 border-t border-slate-200 dark:border-slate-800">
+    Certified Ovomet&reg; &bull; Ovoderm&reg; Bioactive Ingredients &bull; ISO 22000 Quality Standard &bull; SIA APF Trading
+  </section>
+
+  <script>
+    let isAnnual = false;
+
+    function setBillingCycle(cycle) {
+      isAnnual = (cycle === 'annual');
+      const monthlyBtn = document.getElementById('monthlyBtn');
+      const annualBtn = document.getElementById('annualBtn');
+      const pStarter = document.querySelector('.price-starter');
+      const pPro = document.querySelector('.price-pro');
+      const pEnterprise = document.querySelector('.price-enterprise');
+
+      if (isAnnual) {
+        annualBtn.className = "px-6 py-3 rounded-xl font-black text-xs uppercase tracking-wider bg-[#0B132B] text-white transition-all shadow-md cursor-pointer";
+        monthlyBtn.className = "px-6 py-3 rounded-xl font-black text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300 transition-all cursor-pointer";
+        pStarter.textContent = '€31';
+        pPro.textContent = '€63';
+        pEnterprise.textContent = '€159';
+      } else {
+        monthlyBtn.className = "px-6 py-3 rounded-xl font-black text-xs uppercase tracking-wider bg-[#0B132B] text-white transition-all shadow-md cursor-pointer";
+        annualBtn.className = "px-6 py-3 rounded-xl font-black text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300 transition-all cursor-pointer";
+        pStarter.textContent = '€39';
+        pPro.textContent = '€79';
+        pEnterprise.textContent = '€199';
+      }
+    }
+  </script>
+</body>
+</html>
