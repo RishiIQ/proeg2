@@ -13,15 +13,47 @@
   <script src="js/db.js"></script>
   <script src="js/layout.js"></script>
 
-  <!-- Section 1: SaaS Hero Banner with Valid Background Image -->
-  <section class="relative py-28 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-2xl mx-4 my-4 shadow-2xl overflow-hidden" style="background-image: linear-gradient(rgba(11,19,43,0.85), rgba(11,19,43,0.85)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9Q1YvCVoh2Jgglllw3hTWLtPOqV7-cgbOYIXNcsoQUizx3CxrDimpS9s&s=10');">
-    <div class="max-w-4xl mx-auto space-y-6 relative z-10">
-      <span class="px-4 py-1.5 bg-[#E63946] text-white text-[0.65rem] font-bold uppercase tracking-[0.2em] rounded-md">B2B Enterprise API v4.2</span>
-      <h1 class="text-4xl sm:text-7xl font-black uppercase tracking-tight">Autonomous Supply & Telemetry SaaS</h1>
-      <p class="text-slate-300 text-sm sm:text-base uppercase tracking-wider max-w-2xl mx-auto">Scale your retail nutrition distribution network with real-time IoT cold-chain tracking, automated inventory webhooks, and sub-second API dispatches.</p>
-      <div class="pt-4 flex justify-center gap-4">
-        <a href="pricing.html" class="proeg-btn bg-[#E63946] text-white">Deploy API Nodes</a>
-        <a href="contact.html" class="px-8 py-3.5 border-2 border-white text-white font-bold uppercase text-xs tracking-widest rounded-xl hover:bg-white hover:text-[#0B132B] transition-all">Contact Sales</a>
+  <!-- Section 1: Enhanced Enterprise SaaS Hero Banner -->
+  <section class="relative py-32 sm:py-40 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-6 shadow-2xl overflow-hidden border border-white/10" style="background-image: linear-gradient(rgba(8,12,20,0.92), rgba(11, 19, 43, 0.497)), url('https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-600/15 via-transparent to-transparent pointer-events-none"></div>
+    
+    <div class="max-w-4xl mx-auto space-y-8 relative z-10">
+      <!-- Live Status Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-700 text-slate-200 text-xs font-bold uppercase tracking-[0.2em] shadow-xl backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-[#E63946] animate-ping"></span>
+        B2B Enterprise API v4.2 &bull; Live Telemetry
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-7xl font-black uppercase tracking-tight leading-[1.05]">
+        Autonomous Supply & <span class="bg-gradient-to-r from-white via-blue-300 to-blue-800 bg-clip-text text-transparent">Telemetry SaaS</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-slate-300 text-sm sm:text-base uppercase tracking-wider max-w-2xl mx-auto leading-relaxed">
+        Scale your retail nutrition distribution network with real-time IoT cold-chain tracking, automated inventory webhooks, and sub-second API dispatches.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="pricing.html" class="proeg-btn bg-[#E63946] text-white py-4 px-8 shadow-2xl hover:bg-red-700 transition-all text-xs font-black uppercase tracking-wider">Deploy API Nodes</a>
+        <a href="contact.html" class="px-8 py-4 border-2 border-white/30 text-white font-bold uppercase text-xs tracking-widest rounded-xl hover:bg-white hover:text-[#0B132B] transition-all backdrop-blur-sm shadow-xl">Contact Sales</a>
+      </div>
+
+      <!-- Key Performance Indicators (KPI Bar) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-10 border-t border-slate-800/80 max-w-2xl mx-auto text-left">
+        <div class="space-y-1">
+          <p class="text-2xl sm:text-3xl font-black text-white">99.99%</p>
+          <p class="text-[0.65rem] uppercase tracking-widest text-slate-400 font-bold">Uptime SLA Guaranteed</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-2xl sm:text-3xl font-black text-[#E63946]">Sub-15ms</p>
+          <p class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-400">Webhook Latency</p>
+        </div>
+        <div class="space-y-1 col-span-2 sm:col-span-1">
+          <p class="text-2xl sm:text-3xl font-black text-white">450k+</p>
+          <p class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-400">Daily Dispatches</p>
+        </div>
       </div>
     </div>
   </section>
@@ -33,34 +65,65 @@
     </div>
   </div>
 
-  <!-- Section 3: Core Architecture Features -->
+ <!-- Section 3: Core Architecture Features -->
   <section class="py-20 px-6 max-w-7xl mx-auto">
-    <div class="text-center space-y-2 mb-12">
+    <div class="text-center space-y-3 mb-12">
+      <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#E63946]">Telemetry Infrastructure</span>
       <h2 class="text-3xl sm:text-4xl font-black uppercase text-[#0B132B] dark:text-white">Enterprise Infrastructure</h2>
       <p class="text-xs uppercase tracking-widest text-slate-500">Built for high-throughput retail chains and nutritional brands.</p>
     </div>
+    
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="proeg-card p-8 space-y-4 rounded-2xl">
-        <div class="w-12 h-12 bg-red-100 dark:bg-red-950 text-[#E63946] flex items-center justify-center font-black text-xl rounded-xl">01</div>
-        <h3 class="font-black text-xl uppercase">Algorithmic Routing</h3>
-        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Dynamic graph algorithms calculate optimal fulfillment pathways based on live regional demand and urban traffic telemetry.</p>
+      <!-- Card 1: Algorithmic Routing -->
+      <div class="proeg-card p-8 flex flex-col justify-between space-y-6 rounded-3xl shadow-xl hover:shadow-2xl transition-all group">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 bg-red-100 dark:bg-red-950 text-[#E63946] flex items-center justify-center font-black text-xl rounded-2xl shadow-sm">01</div>
+            <span class="text-[0.6rem] font-bold uppercase tracking-widest text-emerald-500 bg-emerald-500/10 px-2.5 py-1 rounded-full">Active Node</span>
+          </div>
+          <div class="aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+            <img src="https://cdn.educba.com/academy/wp-content/uploads/2019/08/Routing-Algorithms-1.jpg" alt="algorithm" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <h3 class="font-black text-xl uppercase text-[#0B132B] dark:text-white">Algorithmic Routing</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed uppercase">Dynamic graph algorithms calculate optimal fulfillment pathways based on live regional demand and urban traffic telemetry.</p>
+        </div>
       </div>
-      <div class="proeg-card p-8 space-y-4 rounded-2xl">
-        <div class="w-12 h-12 bg-red-100 dark:bg-red-950 text-[#E63946] flex items-center justify-center font-black text-xl rounded-xl">02</div>
-        <h3 class="font-black text-xl uppercase">IoT Cold-Chain Sensors</h3>
-        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Continuous hardware telemetry logs temperature parameters in real-time, ensuring perishables never deviate outside safety thresholds.</p>
+
+      <!-- Card 2: IoT Cold-Chain Sensors -->
+      <div class="proeg-card p-8 flex flex-col justify-between space-y-6 rounded-3xl shadow-xl hover:shadow-2xl transition-all group">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 bg-red-100 dark:bg-red-950 text-[#E63946] flex items-center justify-center font-black text-xl rounded-2xl shadow-sm">02</div>
+            <span class="text-[0.6rem] font-bold uppercase tracking-widest text-blue-500 bg-blue-500/10 px-2.5 py-1 rounded-full">Real-Time</span>
+          </div>
+          <div class="aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+            <img src="https://www.telit.com/wp-content/uploads/2018/02/cold-chain-map-600x400.jpg" alt="cold-chain" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <h3 class="font-black text-xl uppercase text-[#0B132B] dark:text-white">IoT Cold-Chain Sensors</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed uppercase">Continuous hardware telemetry logs temperature parameters in real-time, ensuring perishables never deviate outside safety thresholds.</p>
+        </div>
       </div>
-      <div class="proeg-card p-8 space-y-4 rounded-2xl">
-        <div class="w-12 h-12 bg-red-100 dark:bg-red-950 text-[#E63946] flex items-center justify-center font-black text-xl rounded-xl">03</div>
-        <h3 class="font-black text-xl uppercase">Predictive Stock Sync</h3>
-        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Machine learning pipelines forecast regional nutritional spikes to pre-position stock across micro-warehousing nodes.</p>
+
+      <!-- Card 3: Predictive Stock Sync -->
+      <div class="proeg-card p-8 flex flex-col justify-between space-y-6 rounded-3xl shadow-xl hover:shadow-2xl transition-all group">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 bg-red-100 dark:bg-red-950 text-[#E63946] flex items-center justify-center font-black text-xl rounded-2xl shadow-sm">03</div>
+            <span class="text-[0.6rem] font-bold uppercase tracking-widest text-[#E63946] bg-[#E63946]/10 px-2.5 py-1 rounded-full">ML Powered</span>
+          </div>
+          <div class="aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIoe7cCkppNyL4WsziawiAJi09xFLHVnohqSf_q9Dc2IYNIa6QLouVZek&s=10" alt="stack_sync" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <h3 class="font-black text-xl uppercase text-[#0B132B] dark:text-white">Predictive Stock Sync</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed uppercase">Machine learning pipelines forecast regional nutritional spikes to pre-position stock across micro-warehousing nodes.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 4: Secondary Banner with Valid Background Image -->
-  <section class="relative py-24 px-6 text-center bg-blue-950 text-white  rounded-2xl mx-4 my-8 shadow-xl">
-    <div class="max-w-4xl mx-auto space-y-6">
+  <!-- Section 4: Secondary Banner with Relevant Background Image -->
+  <section class="relative py-24 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-2xl mx-4 my-8 shadow-xl overflow-hidden" style="background-image: linear-gradient(rgba(11,19,43,0.85), rgba(11,19,43,0.85)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920');">
+    <div class="max-w-4xl mx-auto space-y-6 relative z-10">
       <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#E63946]">Global Distribution</span>
       <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight">Powering 450,000+ Daily Dispatches</h2>
       <p class="text-slate-300 text-xs sm:text-sm uppercase tracking-wider max-w-xl mx-auto">Seamlessly connect your ERP or eCommerce storefront to our decentralized logistics grid with zero downtime.</p>
@@ -98,9 +161,9 @@
     </div>
   </section>
 
-  <!-- Section 6: Third Banner with Valid Background Image -->
-  <section class="relative py-24 px-6 text-center bg-blue-950 text-white  rounded-2xl mx-4 my-8 shadow-xl" >
-    <div class="max-w-3xl mx-auto space-y-4">
+  <!-- Section 6: Third Banner with Relevant Background Image -->
+  <section class="relative py-24 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-2xl mx-4 my-8 shadow-xl overflow-hidden" style="background-image: linear-gradient(rgba(11,19,43,0.85), rgba(11,19,43,0.85)), url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1920');">
+    <div class="max-w-3xl mx-auto space-y-4 relative z-10">
       <h2 class="text-3xl sm:text-5xl font-black uppercase">SOC2 Type II Certified Security</h2>
       <p class="text-xs uppercase tracking-widest text-slate-300">Enterprise-grade encryption at rest and in transit protecting your inventory databases.</p>
     </div>

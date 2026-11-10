@@ -8,56 +8,74 @@ window.proegLayout = {
         Build Your proeg² Bundle with up to 20% off
       </div>
 
-      <header class="fixed top-[34px] left-0 w-full z-40 bg-[#0B132B] dark:bg-[#0B132B] border-b border-slate-800 h-[75px] flex items-center px-6 text-white">
-        <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
-          <!-- Logo & Name -->
-          <div class="flex items-center gap-2">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrYv7bQadLSGQkjXOU1Zk5vYmwK1VUJNSmIiHhdRuMA&s=10" class="w-8 h-8 rounded-full object-cover" alt="logo">
-            <a href="index.html" class="font-black text-2xl tracking-tighter text-white no-underline">
-              PROEG<sup class="text-[#E63946] font-bold text-sm">2</sup>
+     <header class="fixed top-[34px] left-0 w-full z-40 bg-[#0B132B] dark:bg-[#0B132B] border-b border-slate-800 h-[75px] flex items-center px-6 text-white">
+  <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+    <!-- Logo & Name -->
+    <div class="flex items-center gap-2">
+      
+      <a href="index.html" class="flex items-center gap-2 inline-flex group no-underline">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrYv7bQadLSGQkjXOU1Zk5vYmwK1VUJNSmIiHhdRuMA&s=10" class="w-8 h-8 rounded-full object-cover" alt="logo">
+              <span class="font-black text-2xl tracking-tighter text-white group-hover:text-[#E63946] transition-colors">
+                PROEG<sup class="text-[#E63946] font-bold text-sm">2</sup>
+              </span>
             </a>
-          </div>
+    </div>
 
-          <!-- Navigation Menu with Active Highlight (Desktop) -->
-          <nav class="hidden lg:flex items-center gap-7 text-[0.75rem] font-bold uppercase tracking-[0.1em] text-slate-300">
-            <!-- Home Dropdown -->
-            <div class="relative group cursor-pointer py-6">
-              <span class="flex items-center gap-1 hover:text-white transition-colors ${currentPath === 'index.html' || currentPath === 'index-saas.html' ? 'text-[#E63946]' : ''}">Home ▾</span>
-              <div class="absolute top-full left-0 w-48 bg-[#0B132B] border border-slate-800 shadow-xl rounded-xl py-2 hidden group-hover:block z-50">
-                <a href="index.html" class="block px-4 py-2 text-xs hover:bg-slate-800 ${currentPath === 'index.html' ? 'text-[#E63946]' : 'text-slate-300'}">Customer Portal</a>
-                <a href="index-saas.html" class="block px-4 py-2 text-xs hover:bg-slate-800 ${currentPath === 'index-saas.html' ? 'text-[#E63946]' : 'text-slate-300'}">Business SaaS</a>
-              </div>
-            </div>
-            <a href="products.html" class="transition-colors ${currentPath === 'products.html' ? 'text-[#E63946]' : 'hover:text-white'}">Shop</a>
-            <a href="about.html" class="transition-colors ${currentPath === 'about.html' ? 'text-[#E63946]' : 'hover:text-white'}">About</a>
-            <a href="blog.html" class="transition-colors ${currentPath === 'blog.html' ? 'text-[#E63946]' : 'hover:text-white'}">Blog</a>
-            <a href="pricing.html" class="transition-colors ${currentPath === 'pricing.html' ? 'text-[#E63946]' : 'hover:text-white'}">Pricing</a>
-            <a href="contact.html" class="transition-colors ${currentPath === 'contact.html' ? 'text-[#E63946]' : 'hover:text-white'}">Contact</a>
-          </nav>
-
-          <!-- Right Actions (Desktop Toggles hidden on mobile) & Mobile Hamburger -->
-          <div class="flex items-center gap-3 text-xs font-bold uppercase">
-            <!-- Desktop RTL Toggle -->
-            <button id="rtlToggle" class="hidden lg:inline-flex p-2 border border-slate-700 rounded-xl text-slate-300 hover:border-white transition-colors" title="Toggle RTL/LTR">
-              <span id="rtlLabel" class="text-[0.6rem]">RTL</span>
-            </button>
-            <!-- Desktop Theme Toggle -->
-            <button id="themeToggle" class="hidden lg:inline-flex p-2 border border-slate-700 rounded-xl text-slate-300 hover:border-white transition-colors" title="Toggle Theme">
-              <svg class="dark:hidden" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-              <svg class="hidden dark:block text-amber-400" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-            </button>
-            <!-- Cart Icon -->
-            <a href="cart.html" class="relative p-2 border border-slate-700 rounded-xl text-slate-300 hover:border-white transition-colors ${currentPath === 'cart.html' ? 'border-[#E63946] text-[#E63946]' : ''}" title="Cart">
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-              <span id="cartBadge" class="absolute top-0 right-0 bg-[#E63946] text-white text-[0.45rem] font-bold w-4 h-4 rounded-full flex items-center justify-center" style="display:none;">0</span>
-            </a>
-            <!-- Mobile Hamburger Button -->
-            <button id="mobileMenuBtn" class="lg:hidden p-2 border border-slate-700 rounded-xl text-slate-300 hover:border-white transition-colors" title="Toggle Menu">
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
-          </div>
+    <!-- Navigation Menu with Active Highlight (Desktop) -->
+    <nav class="hidden lg:flex items-center gap-7 text-[0.75rem] font-bold uppercase tracking-[0.1em] text-slate-300">
+      <!-- Home Dropdown -->
+      <div class="relative group cursor-pointer py-6">
+        <span class="flex items-center gap-1 hover:text-white transition-colors ${currentPath === 'index.html' || currentPath === 'index-saas.html' ? 'text-[#E63946]' : ''}">Home ▾</span>
+        <div class="absolute top-full left-0 w-48 bg-[#0B132B] border border-slate-800 shadow-xl rounded-xl py-2 hidden group-hover:block z-50">
+          <a href="index.html" class="block px-4 py-2 text-xs hover:bg-slate-800 ${currentPath === 'index.html' ? 'text-[#E63946]' : 'text-slate-300'}">Customer Portal</a>
+          <a href="index-saas.html" class="block px-4 py-2 text-xs hover:bg-slate-800 ${currentPath === 'index-saas.html' ? 'text-[#E63946]' : 'text-slate-300'}">Business SaaS</a>
         </div>
-      </header>
+      </div>
+      <a href="products.html" class="transition-colors ${currentPath === 'products.html' ? 'text-[#E63946]' : 'hover:text-white'}">Shop</a>
+      <a href="about.html" class="transition-colors ${currentPath === 'about.html' ? 'text-[#E63946]' : 'hover:text-white'}">About</a>
+      <a href="blog.html" class="transition-colors ${currentPath === 'blog.html' ? 'text-[#E63946]' : 'hover:text-white'}">Blog</a>
+      <a href="pricing.html" class="transition-colors ${currentPath === 'pricing.html' ? 'text-[#E63946]' : 'hover:text-white'}">Pricing</a>
+      <a href="contact.html" class="transition-colors ${currentPath === 'contact.html' ? 'text-[#E63946]' : 'hover:text-white'}">Contact</a>
+    </nav>
+
+    <!-- Right Actions & Primary CTA -->
+    <div class="flex items-center gap-3 text-xs font-bold uppercase">
+      <!-- Primary CTA Button (Desktop) -->
+      <a href="products.html" class="hidden sm:inline-flex items-center px-4 py-2.5 bg-[#E63946] text-white rounded-xl font-bold uppercase tracking-wider hover:bg-red-700 transition-colors shadow-lg">
+        Shop Now
+      </a>
+
+      <!-- Desktop RTL Toggle -->
+      <button id="rtlToggle" class="hidden lg:inline-flex p-2 border border-slate-700 rounded-xl text-slate-900 hover:text-slate-100 bg-white hover:bg-blue-950 transition-colors" title="Toggle RTL/LTR">
+        <span id="rtlLabel" class="text-[0.6rem]">RTL</span>
+      </button>
+      
+     <!-- Desktop Theme Toggle -->
+      <button id="themeToggle" class="hidden lg:inline-flex items-center justify-center p-2.5 border border-slate-700 rounded-xl text-slate-300 hover:border-white transition-colors" title="Toggle Theme">
+        <!-- Sun Icon (Visible in Light Mode to switch to Dark) -->
+        <svg class="dark:hidden w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41"/>
+        </svg>
+        <!-- Moon Icon (Visible in Dark Mode to switch to Light) -->
+        <svg class="hidden dark:block w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+      </button>
+
+      <!-- Cart Icon -->
+      <a href="cart.html" class="relative p-2 border border-slate-700 rounded-xl text-slate-300 hover:border-white transition-colors ${currentPath === 'cart.html' ? 'border-[#E63946] text-[#E63946]' : ''}" title="Cart">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span id="cartBadge" class="absolute top-0 right-0 bg-[#E63946] text-white text-[0.45rem] font-bold w-4 h-4 rounded-full flex items-center justify-center" style="display:none;">0</span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="lg:hidden p-2 border border-slate-700 rounded-xl text-slate-300 hover:border-white transition-colors" title="Toggle Menu">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
       <!-- Mobile Dropdown Navigation Menu Drawer (Containing Navigation Links + RTL & Theme Toggles) -->
       <div id="mobileMenu" class="fixed top-[109px] left-0 w-full z-30 bg-[#0B132B] text-white border-b border-slate-800 p-6 space-y-4 hidden shadow-2xl lg:hidden transition-all">
@@ -90,26 +108,27 @@ window.proegLayout = {
       </div>
     `;
 
-    const footerHTML = `
+   const footerHTML = `
       <footer class="bg-[#0B132B] text-white py-16 px-6 mt-20 border-t border-slate-800">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-xs uppercase tracking-wider mb-12">
           <div class="space-y-4">
-            <div class="flex items-center gap-2">
+            <!-- Footer Logo with Home Redirection Link -->
+            <a href="index.html" class="flex items-center gap-2 inline-flex group no-underline">
               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHrYv7bQadLSGQkjXOU1Zk5vYmwK1VUJNSmIiHhdRuMA&s=10" class="w-8 h-8 rounded-full object-cover" alt="logo">
-              <span class="font-black text-2xl tracking-tighter text-white">
+              <span class="font-black text-2xl tracking-tighter text-white group-hover:text-[#E63946] transition-colors">
                 PROEG<sup class="text-[#E63946] font-bold text-sm">2</sup>
               </span>
-            </div>
+            </a>
             <p class="text-slate-400 text-[0.65rem] leading-relaxed">From Egg to proeg² — powered by the natural goodness of eggs and advanced bio-collagen science.</p>
           </div>
           <div>
             <h4 class="font-bold text-[#E63946] mb-4 tracking-[0.2em]">Shop</h4>
             <ul class="space-y-2 text-slate-300 font-medium">
-  <li><a href="products.html" class="hover:text-white">All products</a></li>
-  <li><a href="products.html?goal=Joint%20Support" class="hover:text-white">Pure Collagen</a></li>
-  <li><a href="products.html?goal=Muscle%20Health" class="hover:text-white">Protein Powder</a></li>
-  <li><a href="products.html?goal=Snacking" class="hover:text-white">Protein Bars</a></li>
-</ul>
+              <li><a href="products.html" class="hover:text-white">All products</a></li>
+              <li><a href="products.html?goal=Joint%20Support" class="hover:text-white">Pure Collagen</a></li>
+              <li><a href="products.html?goal=Muscle%20Health" class="hover:text-white">Protein Powder</a></li>
+              <li><a href="products.html?goal=Snacking" class="hover:text-white">Protein Bars</a></li>
+            </ul>
           </div>
           <div>
             <h4 class="font-bold text-[#E63946] mb-4 tracking-[0.2em]">Learn more</h4>
@@ -118,6 +137,8 @@ window.proegLayout = {
               <li><a href="buying-guide.html" class="hover:text-white">Research</a></li>
               <li><a href="blog.html" class="hover:text-white">Blog</a></li>
               <li><a href="contact.html" class="hover:text-white">Contact Information</a></li>
+              <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
+              <li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li>
             </ul>
           </div>
           <div class="space-y-4">

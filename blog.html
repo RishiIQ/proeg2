@@ -14,7 +14,7 @@
   <script src="js/layout.js"></script>
 
   <!-- Section 1: Hero Banner with Relevant Background Image -->
-  <section class="py-24 sm:py-32 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-6 shadow-2xl relative overflow-hidden group transition-all duration-500" style="background-image: linear-gradient(rgba(11,19,43,0.85), rgba(11,19,43,0.85)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=1920');">
+  <section class="py-24 sm:py-32 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-6 shadow-2xl relative overflow-hidden group transition-all duration-500" style="background-image: linear-gradient(rgba(11, 19, 43, 0.423), rgba(11, 19, 43, 0.426)), url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');">
     <div class="max-w-3xl mx-auto space-y-6 relative z-10 backdrop-blur-md bg-[#0B132B]/85 border border-white/10 rounded-2xl p-8 sm:p-12 shadow-2xl">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E63946]/20 border border-[#E63946]/40 text-[#E63946] text-[0.6rem] font-extrabold uppercase tracking-[0.2em]">
         <span class="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse"></span>
@@ -191,14 +191,16 @@
     <p class="text-sm font-bold uppercase mt-2 text-[#0B132B] dark:text-white">All articles are peer-reviewed by our internal scientific advisory board.</p>
   </section>
 
-  <!-- Section 9: Newsletter Subscription -->
+<!-- Section 9: Newsletter Subscription -->
   <section class="bg-[#FDF6F0] dark:bg-slate-900 py-16 px-6 text-center border-t border-slate-200 dark:border-slate-800">
     <div class="max-w-xl mx-auto space-y-4">
       <h3 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">Subscribe to Journal Insights</h3>
       <p class="text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300">Receive weekly nutritional studies and expert fitness tips directly in your inbox.</p>
-      <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" class="flex gap-2 pt-2">
-        <input type="email" placeholder="Email address" required class="flex-1 p-3.5 border border-slate-300 dark:border-slate-700 text-xs uppercase bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none rounded-xl">
-        <button type="submit" class="proeg-btn">Subscribe</button>
+      
+      <!-- Responsive stack on mobile screens (flex-col), side-by-side on sm+ screens (flex-row) -->
+      <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" class="flex flex-col sm:flex-row gap-3 pt-2">
+        <input type="email" placeholder="Email address" required class="w-full sm:flex-1 p-3.5 border border-slate-300 dark:border-slate-700 text-xs uppercase bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none rounded-xl">
+        <button type="submit" class="w-full sm:w-auto proeg-btn">Subscribe</button>
       </form>
     </div>
   </section>

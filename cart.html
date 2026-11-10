@@ -157,13 +157,13 @@
             <span class="font-black uppercase text-sm">Total</span>
             <span id="cartTotal" class="font-black text-2xl text-[#E63946]">&euro;0.00</span>
           </div>
-
-          <!-- SECTION 4: Promo Code Input Box -->
+<!-- SECTION 4: Promo Code Input Box -->
           <div class="space-y-2 pt-2">
             <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Discount Voucher</label>
-            <div class="flex gap-2">
-              <input type="text" id="promoCodeInput" placeholder="e.g. proeg20" class="flex-1 p-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
-              <button onclick="applyPromo()" class="px-4 py-3 bg-[#0B132B] text-white text-xs font-bold uppercase rounded-xl hover:bg-[#E63946] transition-colors cursor-pointer">Apply</button>
+            <!-- Responsive stack on mobile (flex-col), side-by-side on sm+ screens (flex-row) -->
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input type="text" id="promoCodeInput" placeholder="e.g. proeg20" class="w-full sm:flex-1 p-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
+              <button onclick="applyPromo()" class="w-full sm:w-auto px-4 py-3 bg-[#0B132B] text-white text-xs font-bold uppercase rounded-xl hover:bg-[#E63946] transition-colors cursor-pointer">Apply</button>
             </div>
           </div>
 

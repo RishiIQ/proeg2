@@ -13,9 +13,9 @@
   <script src="js/db.js"></script>
   <script src="js/layout.js"></script>
 
-  <!-- Section 1: Hero Banner ("Improve your health, improve your life") -->
-  <section class="py-40 sm:py-40 px-6 text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-4 shadow-xl relative overflow-hidden" style="background-image: linear-gradient(rgba(11,19,43,0.3), rgba(11,19,43,0.3)), url('https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');">
-    <div class="max-w-4xl mx-auto space-y-8 text-left">
+<!-- Section 1: Hero Banner ("Improve your health, improve your life") -->
+  <section class="py-40 sm:py-40 px-6 text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-4 shadow-xl relative overflow-hidden flex items-center justify-center" style="background-image: linear-gradient(rgba(11,19,43,0.3), rgba(11,19,43,0.3)), url('https://images.unsplash.com/photo-1603201667106-0e3e0ae584c5?q=80&w=1234&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');">
+    <div class="max-w-4xl mx-auto space-y-8 text-center bg-blue-950/90 p-8 rounded-2xl flex flex-col items-center justify-center relative z-10">
       <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white drop-shadow-md">Improve your health,<br>improve your life</h1>
       <p class="text-xs sm:text-sm uppercase tracking-wider text-slate-100 max-w-lg leading-relaxed">
         Empowering your lifestyle with exceptional science-backed nutrition from the pure, natural power of eggs.
@@ -115,14 +115,16 @@
     </div>
   </section>
 
-  <!-- Section 9: Newsletter Subscription (Peach Box) -->
+ <!-- Section 9: Newsletter Subscription (Peach Box) -->
   <section class="py-16 px-6 max-w-4xl mx-auto">
-    <div class="bg-[#FFD8C2] dark:bg-slate-900 p-10 rounded-3xl text-center space-y-4 shadow-md">
+    <div class="bg-[#FFD8C2] dark:bg-slate-900 p-6 sm:p-10 rounded-3xl text-center space-y-4 shadow-md">
       <h3 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">Subscribe to Newsletter</h3>
       <p class="text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300">Be the first to know about exclusive updates, special offers, and wellness tips. Stay connected with proeg²!</p>
-      <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" class="flex gap-2 max-w-md mx-auto pt-2">
-        <input type="email" placeholder="Email" required class="flex-1 p-3.5 border border-slate-300 text-xs uppercase bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none rounded-xl">
-        <button type="submit" class="proeg-btn">Subscribe me</button>
+      
+      <!-- Responsive stack on mobile (flex-col), side-by-side on sm+ screens (flex-row) -->
+      <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2">
+        <input type="email" placeholder="Email" required class="w-full sm:flex-1 p-3.5 border border-slate-300 text-xs uppercase bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none rounded-xl">
+        <button type="submit" class="w-full sm:w-auto proeg-btn">Subscribe me</button>
       </form>
     </div>
   </section>

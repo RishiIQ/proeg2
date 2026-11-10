@@ -10,7 +10,7 @@ window.proegDB = {
       badge: '🔥 BESTSELLER',
       rating: 4.9,
       reviews: 40,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSEQfTJ6zpt5X0kh1jxUUQgobUkqYIqbDvj85XH20MEIDPCKC99z41OAw&s=10',
+      image: 'https://fiteg2.com/cdn/shop/files/Modelu_bildes_produktiem_3_-min.png?v=1774876559&width=1445',
       description: '100% pure albumin egg white protein. Lactose-free, dairy-free, and packed with all 9 essential amino acids.'
     },
     {
@@ -61,18 +61,7 @@ window.proegDB = {
       image: 'https://images.pexels.com/photos/28988965/pexels-photo-28988965.jpeg',
       description: '60 capsules of Ovomet® egg membrane collagen designed for comprehensive joint and tendon mobility.'
     },
-    {
-      id: 'proeg-6',
-      name: 'Pure Beauty Collagen (Egg Membrane) - Beauty Formula',
-      category: 'Pure Collagen',
-      goal: 'Skin & Hair',
-      price: 39.95,
-      badge: 'Beauty',
-      rating: 5.0,
-      reviews: 8,
-      image: 'https://media.gettyimages.com/id/2233589964/photo/young-woman-applying-serum-on-face.jpg?s=612x612&w=0&k=20&c=DVG6uQxRMajG1H9QBWqNXKRMG4n7n5LqwsNd7jbGm3o=',
-      description: 'Ovoderm® egg membrane collagen capsules formulated to enhance skin elasticity and natural hair glow.'
-    },
+   
     {
       id: 'proeg-7',
       name: 'Egg White Protein Bar MIX (3 flavours), 12 bars',
@@ -194,7 +183,7 @@ window.proegDB = {
       badge: 'COURSE',
       rating: 5.0,
       reviews: 2,
-      image: 'https://fiteg2.com/cdn/shop/files/fiteg_komplekts_1080x1080-8.jpg?v=1767079346&width=713',
+      image: 'https://fiteg2.com/cdn/shop/files/fiteg_komplekts_1080x1080fiteg_komplekts_1080x1080_pure2.jpg?v=1770040315',
       description: 'A dedicated 60-day supply of beauty collagen for skin radiance and hair vitality.'
     }
   ],

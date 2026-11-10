@@ -14,7 +14,7 @@
   <script src="js/layout.js"></script>
 
   <!-- Section 1: Hero Header with HQ Background Image -->
-  <section class="py-24 sm:py-32 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-6 shadow-2xl relative overflow-hidden group transition-all duration-500" style="background-image:url('https://img.magnific.com/premium-photo/website-internet-contact-us-page-concept-with-phone-email-mail-icons-symbol-telephone-mail-address-website-page-contact-us-web-banner-copy-space-grey-background_256259-3515.jpg?semt=ais_hybrid&w=740&q=80');">
+  <section class="py-24 sm:py-32 px-6 text-center text-white bg-cover bg-center bg-no-repeat rounded-3xl mx-4 my-6 shadow-2xl relative overflow-hidden group transition-all duration-500" style="background-image:url('https://images.unsplash.com/photo-1740560051533-3acef26ace95?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');">
     <div class="absolute inset-0 bg-gradient-to-t from-[#080C14] via-[#0B132B]/75 to-transparent pointer-events-none"></div>
     <div class="max-w-3xl mx-auto space-y-6 relative z-10 backdrop-blur-md bg-[#0B132B]/85 border border-white/10 rounded-2xl p-8 sm:p-12 shadow-2xl">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E63946]/20 border border-[#E63946]/40 text-[#E63946] text-[0.6rem] font-extrabold uppercase tracking-[0.2em]">
@@ -40,21 +40,22 @@
           <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#E63946]">Send a Message</span>
           <h2 class="text-2xl sm:text-3xl font-black uppercase">How can we help you today?</h2>
         </div>
-        <form onsubmit="event.preventDefault(); alert('Your message has been dispatched successfully! Our team will respond within 2 hours.'); this.reset();" class="space-y-4">
+        
+        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="space-y-1">
               <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Your Full Name</label>
-              <input type="text" placeholder="e.g. Janis Berzins" required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
+              <input type="text" id="contactName" placeholder="e.g. Janis Berzins" pattern="^[A-Za-z\s]{2,50}$" title="Please enter a valid full name (at least 2 letters, alphabets only)" required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl focus:border-[#E63946]">
             </div>
             <div class="space-y-1">
               <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Email Address</label>
-              <input type="email" placeholder="janis@example.com" required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
+              <input type="email" id="contactEmail" placeholder="janis@example.com" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a complete email address (e.g. name@domain.com)" required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl focus:border-[#E63946]">
             </div>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="space-y-1">
               <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Inquiry Department</label>
-              <select class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
+              <select id="contactDept" class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
                 <option>Customer Support & Orders</option>
                 <option>Wholesale & B2B Distribution</option>
                 <option>SaaS Telemetry & API Access</option>
@@ -62,15 +63,15 @@
               </select>
             </div>
             <div class="space-y-1">
-              <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Phone Number (Optional)</label>
-              <input type="tel" placeholder="+371 XXXXXXXX" class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl">
+              <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Phone Number (Numbers Only)</label>
+              <input type="tel" id="contactPhone" inputmode="numeric" placeholder="37198765432" pattern="^[0-9]{8,15}$" title="Please enter numbers only (8 to 15 digits)" oninput="this.value = this.value.replace(/\D/g, '')" required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl font-mono focus:border-[#E63946]">
             </div>
           </div>
           <div class="space-y-1">
-    <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Your Message</label>
-    <textarea rows="5" placeholder="Write your inquiry here..." required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl h-32 resize-none text-slate-900 dark:text-white"></textarea>
-</div>
-          <button type="submit" class="proeg-btn w-full py-4 text-center">Dispatch Inquiry</button>
+            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">Your Message</label>
+            <textarea id="contactMsg" rows="5" placeholder="Write your inquiry here..." required class="w-full p-3.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs uppercase outline-none rounded-xl h-32 resize-none text-slate-900 dark:text-white focus:border-[#E63946]"></textarea>
+          </div>
+          <button type="submit" class="proeg-btn w-full py-4 text-center cursor-pointer shadow-lg">Dispatch Inquiry</button>
         </form>
       </div>
 
@@ -206,7 +207,7 @@
   <!-- Section 9: Newsletter Sign-up -->
   <section class="bg-[#FDF6F0] dark:bg-slate-900 py-16 px-6 text-center border-t border-slate-200 dark:border-slate-800">
     <div class="max-w-xl mx-auto space-y-4">
-      <h3 class="text-xl font-black uppercase text-[#0B132B] dark:text-white">Join the proeg² Community</h3>
+      <h3 class="text-2xl font-black uppercase text-[#0B132B] dark:text-white">Join the proeg² Community</h3>
       <p class="text-xs uppercase tracking-wider text-slate-600 dark:text-slate-300">Stay connected with our research updates and community announcements.</p>
       <form onsubmit="event.preventDefault(); alert('Subscribed successfully!');" class="flex gap-2 pt-2">
         <input type="email" placeholder="Email address" required class="flex-1 p-3.5 border border-slate-300 dark:border-slate-700 text-xs uppercase bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none rounded-xl">
@@ -219,5 +220,34 @@
   <section class="py-12 px-6 max-w-7xl mx-auto text-center text-xs uppercase tracking-widest text-slate-400 border-t border-slate-200 dark:border-slate-800">
     Certified Ovomet&reg; &bull; Ovoderm&reg; Bioactive Ingredients &bull; ISO 22000 Quality Standard &bull; SIA APF Trading
   </section>
+
+  <script>
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const phone = document.getElementById('contactPhone').value.trim();
+
+      // Additional JS verification guards
+      if (!/^[A-Za-z\s]{2,50}$/.test(name)) {
+        alert('Please enter a valid full name (at least 2 letters, no numbers or single characters).');
+        return;
+      }
+
+      if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+        alert('Please enter a complete and valid email address (e.g. name@domain.com).');
+        return;
+      }
+
+      if (!/^[0-9]{8,15}$/.test(phone)) {
+        alert('Please enter a valid phone number containing numbers only (8 to 15 digits).');
+        return;
+      }
+
+      alert('Your message has been dispatched successfully! Our team will respond within 2 hours.');
+      event.target.reset();
+    }
+  </script>
 </body>
 </html>
